@@ -1068,13 +1068,13 @@ b {
     display: grid;
     justify-items: center;
     align-items: center;
-    min-height: 280px;
+    min-height: 240px;
     border-bottom: 1px solid var(--color-line);
     padding-bottom: 20px;
     margin-bottom: 24px;
 }
 .step-illustration .section-mascot {
-    width: min(100%, 260px);
+    width: min(100%, 220px);
 }
 .step-number {
     position: absolute;
@@ -2081,10 +2081,10 @@ summary::-webkit-details-marker {
         gap: 25px;
     }
     .step-illustration {
-        min-height: 220px;
+        min-height: 190px;
     }
     .step-illustration .section-mascot {
-        width: min(100%, 200px);
+        width: min(100%, 170px);
     }
     .steps-grid h3 {
         font-size: 25px;
@@ -2387,12 +2387,12 @@ summary::-webkit-details-marker {
         margin-top: 28px;
     }
     .step-illustration {
-        min-height: 253px;
+        min-height: 213px;
         padding-bottom: 13px;
         margin-bottom: 18px;
     }
     .step-illustration .section-mascot {
-        width: 240px;
+        width: 200px;
         max-width: 100%;
     }
     .steps-grid h3 {

@@ -377,7 +377,7 @@ Scene: The sausage mascot is a proudly overqualified backyard barbecue chef. It 
 
 ## Box-to-BBQ object illustrations — 15 September 2026
 
-Mode: built-in `image_gen`, one generation per object. Style reference: `brand/mascots/step-grill.png`, used only for its drawing treatment. These three object-only images replace the earlier column mascots. The delivery mascot beside the heading stays in place. No characters, faces or visible sausages appear in these columns.
+Mode: built-in `image_gen`, one generation per object. Style reference: `brand/mascots/step-grill.png`, used only for its drawing treatment. These three object illustrations replaced the earlier column mascots. The delivery mascot beside the heading stays in place. The initial version had no characters, faces or visible sausages; the enhanced revisions below add sausage contents and truck branding.
 
 Design research: [CHILL transport information](https://faq.chill.com.au/en/knowledge/transport-faqs-1) lists vans and trucks for deliveries; its [temperature-controlled transport overview](https://chill.com.au/wp-content/uploads/2021/09/How-can-we-help-you-rev-3.pdf) identifies refrigerated van/truck services. A compact refrigerated vehicle is our design choice for the planned local chilled-delivery step, not a claim about a contracted courier or vehicle. [Weber's Compact Kettle range](https://anz.weber.com/en-au/collections/compact-kettle) informed the recognisable round bowl, domed lid and wheeled stand for the barbecue illustration. The open insulated carton follows the existing box-and-chilled-delivery concept. No third-party logos or product branding were reproduced.
 
@@ -435,4 +435,42 @@ Make a single attractive OBJECT, not a character: absolutely no eyes, face, mout
 Square 1024x1024 canvas. Center the complete object with a generous approximately 10% empty margin around it. Full object entirely inside the canvas, recognizable at 240px wide. A small black ground shadow and a couple of simple black accent strokes are fine.
 Background: perfectly flat uniform cream #FFF5DD, no gradient, no scene, no texture outside the object, no checkerboard or white border. Every object part has a solid closed black outer contour.
 Subject: A bold bright-red round kettle charcoal barbecue in three-quarter view, on a sturdy black tripod stand with two small chunky wheels. Its domed red lid is hinged open at the back, showing an empty black-and-cream cooking grate. A pair of simple cream-and-black metal barbecue tongs rests diagonally on the rim. Cream lid handle and small black vent holes, two elegant curling black heat lines above the grill. No food or sausages anywhere. Match the red kettle prop in the reference's drawing style, but make the barbecue the sole subject and redraw it larger with a clearly open lid. Entire barbecue including lid, stand and wheels inside the canvas at about 75% width and 85% height.
+```
+
+## Enhanced Box-to-BBQ illustrations — 15 September 2026
+
+Mode: built-in `image_gen`, targeted edits of the three existing column illustrations. These revisions fill the box and barbecue with sausages and replace the truck snowflake with the mascot and WIENER BOX branding.
+
+The original PNGs remain at `brand/mascots/step-box.png`, `brand/mascots/step-truck.png` and `brand/mascots/step-bbq.png`. Website assets reuse the corresponding 360 px and 720 px WebP paths, at quality 90, with refreshed SVG display masks. The box and truck outputs contain an opaque checkerboard removed by their display masks; the barbecue has actual alpha transparency, which is preserved. The existing page composition and responsive image references consume these replacements.
+
+### Final edit prompt set
+
+#### step-box
+
+Reference inputs: `public/images/mascots/step-box-720.webp`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a4b2-51b0-7b40-a1ac-d8d362c1b95d/exec-cb738d51-642b-4251-8884-c937092a2034.png`.
+
+```text
+Use case: precise-object-edit. Asset type: existing illustrated website step icon, square. Edit target: Image 1, the yellow open chilled-delivery box. Enhance this exact illustration by filling the visible box interior with a generous collection of plump reddish-orange German sausage links nestled in the cream insulated liner, alongside a smaller visible cold pack at the back. The sausages must be obvious and appetising at a 260px display size, with tied ends, bold black outlines and simple cream highlights. The sausages are food, no faces. Preserve the existing box geometry, viewpoint, open yellow flaps, red stripe and tape, heavy black outlines, restrained vintage print grain, cream highlights and golden accent marks. Retain the complete original object silhouette, scale, and square framing with a comfortable margin. Match the existing limited mustard-yellow, warm cream, tomato-red, orange and black palette and playful retro cartoon style. Change only the contents of the box. No added text or extra props. Isolate illustration on a genuinely transparent background; keep cream inside the liner and black grounded shadow intact.
+```
+
+#### step-truck
+
+Reference inputs: `public/images/mascots/step-truck-720.webp`, `public/images/mascots/choose-720.webp`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a4b2-51b0-7b40-a1ac-d8d362c1b95d/exec-7f6968e5-e2f7-4645-be4e-ae6384525300.png`.
+
+```text
+Use case: compositing. Asset type: existing illustrated website delivery step icon, square. Image 1 is the edit target, the yellow-and-cream delivery truck. Image 2 is the exact sausage mascot identity and style reference to print as branding on the truck, not as a separate character. Replace the large black snowflake on the yellow side panel of the truck with a branded livery: a small smiling orange sausage mascot matching Image 2 (sausage body with tied ends, expressive cream eyes, black arms, white glove waving, red shoes), alongside a very legible large stacked black wordmark reading exactly "WIENER" on the first line and "BOX" on the second line. Spell WIENER as W-I-E-N-E-R. Use chunky friendly rounded uppercase lettering, with the logo and mascot fitting neatly within the yellow cargo panel above the red stripe. It should read as a deliberate printed truck brand. Remove the snowflake completely. Preserve the exact existing truck viewpoint and silhouette, yellow cargo body, cream cab, red horizontal stripe and wheel hubs, rooftop refrigeration unit, wheels, black shadow, motion marks and comfortable square framing. Match the heavy black outlines, limited warm palette and restrained vintage print grain. No added standalone characters, extra text, watermarks, scenery, or photographic elements. Isolate entire illustration on a genuinely transparent background, keeping cream cab and black grounded shadow intact.
+```
+
+#### step-bbq
+
+Reference inputs: `public/images/mascots/step-bbq-720.webp`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a4b2-51b0-7b40-a1ac-d8d362c1b95d/exec-0f5fb94c-a51b-406c-a09c-24580560ed4e.png`.
+
+```text
+Use case: precise-object-edit. Asset type: existing illustrated website barbecue step icon, square. Edit target: Image 1, the open red kettle barbecue. Add four plump golden-orange and reddish-brown German sausages visibly resting on the black grill grate. Place them naturally across the grate in perspective, each with bold black outlines, 2-3 dark diagonal grill marks and simple creamy highlights, easily readable at a 260px display size. Food only, no faces. Keep the sausages inside the grill and clearly separated from the existing tongs. Preserve the exact existing red barbecue body, open lid, handle, wheels, legs, grill, right-side tongs, black curling heat wisps and grounded black shadow, object silhouette, square framing and margin. Match its warm red, golden-orange, cream and black retro cartoon palette, bold outlines and restrained vintage print grain. Change only the empty grill to have sausages cooking on it. No extra objects or text. Isolate illustration on a genuinely transparent background; keep cream details intact and transparency in open gaps between the legs.
 ```

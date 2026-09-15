@@ -121,7 +121,7 @@ const faqs = [
                             <span class="step-number">01</span>
                             <MascotArtwork
                                 pose="step-box"
-                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                                sizes="(max-width: 639px) 200px, (max-width: 899px) 170px, 220px"
                             />
                         </div>
                         <span class="step-pun">Love at first bite.</span>
@@ -133,7 +133,7 @@ const faqs = [
                             <span class="step-number">02</span>
                             <MascotArtwork
                                 pose="step-truck"
-                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                                sizes="(max-width: 639px) 200px, (max-width: 899px) 170px, 220px"
                             />
                         </div>
                         <span class="step-pun">We’re on a roll.</span>
@@ -148,7 +148,7 @@ const faqs = [
                             <span class="step-number">03</span>
                             <MascotArtwork
                                 pose="step-bbq"
-                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                                sizes="(max-width: 639px) 200px, (max-width: 899px) 170px, 220px"
                             />
                         </div>
                         <span class="step-pun">Licence to grill.</span>
