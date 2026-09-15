@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play, Sparkles } from '@lucide/vue';
 import ProductImage from './ProductImage.vue';
 
-const slides = ['The good stuff', 'The Big Wiener Club'];
+const slides = ['The good stuff', 'The Big Wiener Club', 'Recipes & good ideas'];
 const slideDuration = 8000;
 const activeSlide = ref(0);
 const slideshow = ref<HTMLElement>();
@@ -126,7 +126,7 @@ onBeforeUnmount(() => {
                 :class="{ 'is-active': activeSlide === 0 }"
                 role="group"
                 aria-roledescription="slide"
-                aria-label="1 of 2: The good stuff"
+                :aria-label="`1 of ${slides.length}: The good stuff`"
                 :aria-hidden="activeSlide !== 0"
                 :inert="activeSlide !== 0"
             >
@@ -186,7 +186,7 @@ onBeforeUnmount(() => {
                 :class="{ 'is-active': activeSlide === 1 }"
                 role="group"
                 aria-roledescription="slide"
-                aria-label="2 of 2: The Big Wiener Club"
+                :aria-label="`2 of ${slides.length}: The Big Wiener Club`"
                 :aria-hidden="activeSlide !== 1"
                 :inert="activeSlide !== 1"
             >
@@ -235,6 +235,55 @@ onBeforeUnmount(() => {
                     <p class="hero-club-caption">BIG PERKS. QUESTIONABLE BRAGGING RIGHTS.</p>
                 </div>
             </div>
+            <div
+                id="hero-slide-3"
+                class="hero-slide hero-recipe-slide"
+                :class="{ 'is-active': activeSlide === 2 }"
+                role="group"
+                aria-roledescription="slide"
+                :aria-label="`3 of ${slides.length}: Recipes & good ideas`"
+                :aria-hidden="activeSlide !== 2"
+                :inert="activeSlide !== 2"
+            >
+                <div class="hero-copy">
+                    <p class="eyebrow">
+                        <span class="tiny-star" aria-hidden="true">✳</span> GOOD FOOD. QUESTIONABLE DISGUISE.
+                    </p>
+                    <h2 class="hero-recipe-title" aria-label="Wiener, Wiener, Chicken Dinner">
+                        WIENER,<br />WIENER,<br /><span>CHICKEN<br />DINNER.</span>
+                    </h2>
+                    <p class="hero-description">
+                        Chicken sausages. Golden potatoes. A very good dinner. <br />Our mascot has dressed
+                        for the occasion.
+                    </p>
+                    <div class="hero-buttons">
+                        <Link href="/recipes" class="button primary"
+                            >Get cooking <ArrowUpRight :size="21"
+                        /></Link>
+                    </div>
+                    <div class="hero-footnote">
+                        <span class="status-dot"></span>Costume optional. Appetite essential.
+                    </div>
+                </div>
+                <div class="hero-club-art">
+                    <img
+                        src="/images/wiener-chicken-sausage-dinner-framed.webp"
+                        srcset="
+                            /images/wiener-chicken-sausage-dinner-framed-480.webp  480w,
+                            /images/wiener-chicken-sausage-dinner-framed-800.webp  800w,
+                            /images/wiener-chicken-sausage-dinner-framed.webp     1200w
+                        "
+                        sizes="(max-width: 600px) 100vw, 55vw"
+                        width="1200"
+                        height="1200"
+                        alt="Our sausage mascot in a chicken costume presenting a realistic chicken sausage tray bake with golden potatoes and lemon."
+                        decoding="async"
+                        fetchpriority="low"
+                        draggable="false"
+                    />
+                    <p class="hero-club-caption">ALL FLAVOUR. A LITTLE FOWL PLAY.</p>
+                </div>
+            </div>
         </div>
         <div class="hero-controls">
             <div ref="markers" class="hero-milestones" role="group" aria-label="Choose a banner">
@@ -271,7 +320,10 @@ onBeforeUnmount(() => {
                 >
                     <Play v-if="isPaused" :size="16" /><Pause v-else :size="16" />
                 </button>
-                <span class="hero-slide-count" aria-hidden="true">0{{ activeSlide + 1 }} / 02</span>
+                <span class="hero-slide-count" aria-hidden="true"
+                    >{{ String(activeSlide + 1).padStart(2, '0') }} /
+                    {{ String(slides.length).padStart(2, '0') }}</span
+                >
                 <button type="button" aria-label="Previous slide" @click="selectSlide(activeSlide - 1)">
                     <ArrowLeft :size="19" />
                 </button>
@@ -323,6 +375,14 @@ onBeforeUnmount(() => {
 .hero-club-accent {
     color: var(--color-red);
 }
+.hero-recipe-title {
+    font-size: clamp(52px, 5.8vw, 80px);
+    line-height: 0.9;
+    letter-spacing: -0.035em;
+}
+.hero-recipe-title > span {
+    color: var(--color-red);
+}
 .hero-club-art {
     position: relative;
     align-self: center;
@@ -347,11 +407,13 @@ onBeforeUnmount(() => {
 }
 .hero-milestones {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
-    width: min(100%, 610px);
+    width: min(100%, 800px);
 }
 .hero-milestone {
+    display: flex;
+    flex-direction: column;
     border: 0;
     padding: 10px 0;
     background: transparent;
@@ -359,6 +421,7 @@ onBeforeUnmount(() => {
     color: var(--color-muted);
 }
 .hero-milestone-track {
+    width: 100%;
     display: block;
     position: relative;
     height: 3px;
@@ -452,6 +515,9 @@ onBeforeUnmount(() => {
     .hero-club-title {
         font-size: clamp(64px, 16vw, 88px);
     }
+    .hero-recipe-title {
+        font-size: clamp(55px, 15vw, 78px);
+    }
     .hero-art {
         aspect-ratio: 1;
         align-items: center;
@@ -474,9 +540,10 @@ onBeforeUnmount(() => {
         gap: 12px;
     }
     .hero-milestones {
-        gap: 20px;
+        gap: 12px;
     }
     .hero-milestone-label {
+        flex-direction: column;
         gap: 7px;
         font-size: 10px;
     }

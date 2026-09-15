@@ -11,5 +11,7 @@ class DatabaseSeeder extends Seeder
         if (app()->environment(['local', 'testing'])) {
             $this->call(PreviewCatalogueSeeder::class);
         }
+
+        $this->call(RecipeSeeder::class);
     }
 }

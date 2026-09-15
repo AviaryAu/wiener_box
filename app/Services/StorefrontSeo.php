@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\ProductListing;
+use App\Models\Recipe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,6 +23,12 @@ class StorefrontSeo
     {
         if (array_key_exists($request->route()?->getName() ?? '', config('seo.pages'))) {
             return true;
+        }
+
+        if ($request->routeIs('recipes.show')) {
+            $recipe = $request->route('recipe');
+
+            return $recipe instanceof Recipe && $recipe->published;
         }
 
         $listing = $request->route('listing');
@@ -71,11 +78,45 @@ class StorefrontSeo
             },
             'description' => 'Wiener Box’s prelaunch preview. German-style sausage boxes and gifts, with Sydney delivery planned.',
         ];
-        $canonical = $public && $route !== 'product' ? $this->url($route) : null;
+        $canonical = $public && ! in_array($route, ['product', 'recipes.show'], true) ? $this->url($route) : null;
         $image = $this->assetUrl(config('seo.image'));
         $imageAlt = config('seo.image_alt');
         $breadcrumbs = [];
         $graph = [];
+
+        if ($public && $request->routeIs('recipes.show')) {
+            /** @var Recipe $recipe */
+            $recipe = $request->route('recipe');
+            $page = ['title' => $recipe->title.' | Recipes', 'description' => $recipe->description];
+            $canonical = $this->url('recipes.show', ['recipe' => $recipe]);
+            $image = $this->assetUrl($recipe->image);
+            $imageAlt = $recipe->image_alt;
+            $breadcrumbs = [
+                ['name' => 'Home', 'url' => $this->url('home')],
+                ['name' => 'Recipes', 'url' => $this->url('recipes')],
+                ['name' => $recipe->title, 'url' => $canonical],
+            ];
+            $graph[] = [
+                '@type' => 'Recipe', '@id' => $canonical.'#recipe',
+                'name' => $recipe->title, 'description' => $recipe->description,
+                'url' => $canonical, 'image' => [$image],
+                'author' => ['@type' => 'Organization', 'name' => config('seo.site_name')],
+                'recipeCategory' => $recipe->category,
+                'prepTime' => 'PT'.$recipe->prep_minutes.'M',
+                'cookTime' => 'PT'.$recipe->cook_minutes.'M',
+                'totalTime' => 'PT'.($recipe->prep_minutes + $recipe->cook_minutes).'M',
+                'recipeYield' => $recipe->servings.' servings',
+                'recipeIngredient' => $recipe->ingredients,
+                'recipeInstructions' => array_map(fn (string $step): array => ['@type' => 'HowToStep', 'text' => $step], $recipe->method),
+            ];
+            $graph[] = [
+                '@type' => 'BreadcrumbList',
+                'itemListElement' => array_map(fn (array $crumb, int $position): array => [
+                    '@type' => 'ListItem', 'position' => $position + 1,
+                    'name' => $crumb['name'], 'item' => $crumb['url'],
+                ], $breadcrumbs, array_keys($breadcrumbs)),
+            ];
+        }
 
         if ($public && $request->routeIs('product')) {
             /** @var ProductListing $listing */
@@ -136,11 +177,12 @@ class StorefrontSeo
                 'publisher' => ['@id' => $home.'#organization'],
             ];
             $graph[] = [
-                '@type' => $route === 'shop' ? 'CollectionPage' : 'WebPage',
+                '@type' => in_array($route, ['shop', 'recipes'], true) ? 'CollectionPage' : 'WebPage',
                 '@id' => $canonical.'#webpage', 'url' => $canonical,
                 'name' => $title, 'description' => $page['description'],
                 'isPartOf' => ['@id' => $home.'#website'], 'inLanguage' => 'en-AU',
                 ...($route === 'product' ? ['mainEntity' => ['@id' => $canonical.'#product']] : []),
+                ...($route === 'recipes.show' ? ['mainEntity' => ['@id' => $canonical.'#recipe']] : []),
             ];
         }
 

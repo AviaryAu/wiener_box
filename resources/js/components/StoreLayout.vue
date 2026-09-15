@@ -18,6 +18,7 @@ const links = [
     { label: 'Shop sausages', href: '/shop?category=pack' },
     { label: 'Gifting', href: '/shop?category=gift' },
     { label: 'How it works', href: '/how-it-works' },
+    { label: 'Recipes', href: '/recipes' },
 ];
 </script>
 
@@ -79,7 +80,8 @@ const links = [
                 <div>
                     <h3>Get the good stuff</h3>
                     <Link href="/#boxes">Explore our boxes</Link><Link href="/shop">Shop all sausages</Link
-                    ><Link href="/shop?category=gift">Send a little happiness</Link>
+                    ><Link href="/shop?category=gift">Send a little happiness</Link
+                    ><Link href="/recipes">Recipes & good ideas</Link>
                 </div>
                 <div>
                     <h3>The useful stuff</h3>

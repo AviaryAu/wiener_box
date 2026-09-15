@@ -12,6 +12,7 @@ for (const width of [320, 390, 768, 1440]) {
         const hero = page.getByRole('region', { name: 'A taste of Wiener Box' });
         const firstMarker = hero.getByRole('button', { name: 'Show slide 1: The good stuff' });
         const clubMarker = hero.getByRole('button', { name: 'Show slide 2: The Big Wiener Club' });
+        const recipeMarker = hero.getByRole('button', { name: 'Show slide 3: Recipes & good ideas' });
         await expect(hero.getByRole('heading', { level: 1 })).toContainText('WURST.');
         await page.evaluate(() => document.fonts.ready);
         await hero
@@ -34,7 +35,7 @@ for (const width of [320, 390, 768, 1440]) {
         await expect(hero.getByRole('link', { name: 'Find your box' })).toHaveCount(0);
         expect((await hero.boundingBox())!.height).toBeCloseTo(originalHeight, 0);
         expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
-        const artwork = (await hero.locator('.hero-club-art').boundingBox())!;
+        const artwork = (await hero.locator('#hero-slide-2 .hero-club-art').boundingBox())!;
         const controls = (await hero.locator('.hero-controls').boundingBox())!;
         expect(controls.y).toBeGreaterThanOrEqual(artwork.y + artwork.height);
         if (width === 390 || width === 1440) {
@@ -42,16 +43,27 @@ for (const width of [320, 390, 768, 1440]) {
         }
 
         await page.keyboard.press('ArrowRight');
+        await expect(recipeMarker).toBeFocused();
+        await expect(recipeMarker).toHaveAttribute('aria-pressed', 'true');
+        await expect(hero.getByRole('heading', { name: 'Wiener, Wiener, Chicken Dinner' })).toBeVisible();
+        await expect(hero.getByRole('img', { name: /chicken costume/ })).toBeVisible();
+        expect((await hero.boundingBox())!.height).toBeCloseTo(originalHeight, 0);
+        expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+        if (width === 390 || width === 1440) {
+            await hero.screenshot({ path: `outputs/implementation/slideshow-recipes-${width}.png` });
+        }
+        await page.keyboard.press('Home');
         await expect(firstMarker).toBeFocused();
         await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
         await page.keyboard.press('End');
-        await expect(clubMarker).toBeFocused();
-        await expect(clubMarker).toHaveAttribute('aria-pressed', 'true');
+        await expect(recipeMarker).toBeFocused();
+        await expect(recipeMarker).toHaveAttribute('aria-pressed', 'true');
         await hero.getByRole('button', { name: 'Next slide', exact: true }).click();
         await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
         await hero.getByRole('button', { name: 'Previous slide', exact: true }).click();
-        await expect(clubMarker).toHaveAttribute('aria-pressed', 'true');
+        await expect(recipeMarker).toHaveAttribute('aria-pressed', 'true');
 
+        await clubMarker.click();
         await hero.getByRole('link', { name: 'Get on the list' }).click();
         await expect(page).toHaveURL(/#launch-list$/);
         await expect(page.getByLabel('Email address', { exact: true })).toBeInViewport();
@@ -69,6 +81,7 @@ test('slideshow rotates automatically and pauses for hover, its pause control an
     const stage = hero.locator('.hero-stage');
     const firstMarker = hero.getByRole('button', { name: 'Show slide 1: The good stuff' });
     const clubMarker = hero.getByRole('button', { name: 'Show slide 2: The Big Wiener Club' });
+    const recipeMarker = hero.getByRole('button', { name: 'Show slide 3: Recipes & good ideas' });
     await expect(stage).toHaveAttribute('aria-live', 'off');
 
     await page.clock.fastForward(8100);
@@ -81,22 +94,22 @@ test('slideshow rotates automatically and pauses for hover, its pause control an
     await page.mouse.move(0, 0);
     await expect(stage).toHaveAttribute('aria-live', 'off');
     await page.clock.fastForward(8100);
-    await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
+    await expect(recipeMarker).toHaveAttribute('aria-pressed', 'true');
     await hero.getByRole('button', { name: 'Pause slideshow' }).click();
     await page.mouse.move(0, 0);
     await page.clock.fastForward(16000);
-    await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
+    await expect(recipeMarker).toHaveAttribute('aria-pressed', 'true');
     await expect(hero.getByRole('button', { name: 'Play slideshow' })).toBeVisible();
 
     await hero.getByRole('button', { name: 'Play slideshow' }).click();
     await page.mouse.move(0, 0);
     await expect(stage).toHaveAttribute('aria-live', 'off');
     await page.clock.fastForward(8100);
-    await expect(clubMarker).toHaveAttribute('aria-pressed', 'true');
-    await hero.getByRole('link', { name: 'Get on the list' }).focus();
+    await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
+    await hero.getByRole('link', { name: 'Find your box' }).focus();
     await page.clock.fastForward(16000);
-    await expect(clubMarker).toHaveAttribute('aria-pressed', 'true');
-    await expect(hero.getByRole('link', { name: 'Get on the list' })).toBeFocused();
+    await expect(firstMarker).toHaveAttribute('aria-pressed', 'true');
+    await expect(hero.getByRole('link', { name: 'Find your box' })).toBeFocused();
 });
 
 test('reduced motion starts paused and the club product link opens the existing product', async ({
@@ -153,6 +166,10 @@ test.describe('touch hero slideshow', () => {
         await swipe(0, -160);
         await expect(hero.getByRole('heading', { level: 1 })).toContainText('WURST.');
         await swipe(-140, 10);
+        await expect(hero.getByRole('heading', { name: /JOIN THE/ })).toBeVisible();
+        await swipe(-140, 10);
+        await expect(hero.getByRole('heading', { name: 'Wiener, Wiener, Chicken Dinner' })).toBeVisible();
+        await swipe(140, 10);
         await expect(hero.getByRole('heading', { name: /JOIN THE/ })).toBeVisible();
         await swipe(140, 10);
         await expect(hero.getByRole('heading', { level: 1 })).toContainText('WURST.');

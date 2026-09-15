@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\ProductListing;
+use App\Models\Recipe;
 use App\Models\User;
 use DOMDocument;
 use DOMXPath;
@@ -27,6 +28,7 @@ class SeoTest extends TestCase
     #[TestWith(['/shop', 'Sausage Boxes, Subscriptions & Gifts | Wiener Box'])]
     #[TestWith(['/delivery', 'Sydney Sausage Delivery | Check Your Postcode | Wiener Box'])]
     #[TestWith(['/how-it-works', 'How Our Sausage Boxes & Subscriptions Work | Wiener Box'])]
+    #[TestWith(['/recipes', 'Recipes, German Sides & Sausage Sauces | Wiener Box'])]
     public function test_public_pages_send_metadata_in_initial_html_without_ssr(string $path, string $title): void
     {
         $this->enableIndexing();
@@ -178,8 +180,10 @@ class SeoTest extends TestCase
         $this->assertSame([
             'https://wiener.example/', 'https://wiener.example/shop',
             'https://wiener.example/delivery', 'https://wiener.example/how-it-works',
+            'https://wiener.example/recipes',
             'https://wiener.example/products/the-regular', 'https://wiener.example/products/the-fling',
             'https://wiener.example/products/the-big-gesture', 'https://wiener.example/products/classic-wieners',
+            ...Recipe::published()->orderBy('position')->pluck('slug')->map(fn (string $slug): string => 'https://wiener.example/recipes/'.$slug)->all(),
         ], array_map(fn ($url): string => (string) $url->loc, iterator_to_array($xml->url, false)));
         $this->get('https://wiener.example/robots.txt')->assertHeader('Content-Type', 'text/plain; charset=UTF-8')
             ->assertSee("User-agent: *\nAllow: /\n\nSitemap: https://wiener.example/sitemap.xml", false)

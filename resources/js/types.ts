@@ -13,6 +13,24 @@ export interface Product {
     highlights: string[];
     featured: boolean;
 }
+export interface Recipe {
+    id: number;
+    slug: string;
+    url: string;
+    title: string;
+    category: string;
+    description: string;
+    image: string;
+    imageAlt: string;
+    prepMinutes: number;
+    cookMinutes: number;
+    totalMinutes: number;
+    servings: number;
+    ingredients: string[];
+    method: string[];
+    tip: string;
+    featured: boolean;
+}
 export interface CartLine {
     id: number;
     name: string;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ProductListing;
+use App\Models\Recipe;
 use App\Services\StorefrontSeo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -31,6 +32,10 @@ class SeoController extends Controller
 
             foreach (ProductListing::query()->published()->orderBy('id')->cursor() as $listing) {
                 $urls[] = $seo->url('product', ['listing' => $listing]);
+            }
+
+            foreach (Recipe::query()->published()->orderBy('position')->orderBy('id')->cursor() as $recipe) {
+                $urls[] = $seo->url('recipes.show', ['recipe' => $recipe]);
             }
         }
 

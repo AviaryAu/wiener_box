@@ -24,6 +24,10 @@ return [
             'title' => 'How Our Sausage Boxes & Subscriptions Work',
             'description' => 'Discover the Wiener Box idea: monthly sausage discovery boxes, one-off boxes and gifts, with chilled Sydney delivery planned. Learn about the launch preview.',
         ],
+        'recipes' => [
+            'title' => 'Recipes, German Sides & Sausage Sauces',
+            'description' => 'Make a meal of it with Wiener Box recipes: German-inspired sides, mustard and curry sauces, and sausage dishes including a chicken sausage tray bake.',
+        ],
     ],
 
     'product_images' => [

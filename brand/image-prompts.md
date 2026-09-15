@@ -511,3 +511,83 @@ CARD REDESIGN: replace the black-and-gold luxury card completely. Make a tangibl
 PRODUCT RESTAGING: replace the upright open-lid box entirely. Show a CLOSED low rectangular mustard-yellow shipping carton on the right, resting diagonally on the tabletop in an elevated three-quarter view so its broad top and two shallow sides are visible. Lid flush shut, no vertical cardboard flap. The top carries a big red hand-lettered "WIENER BOX" wordmark plus a printed black smiling sausage illustration; one shallow side has a black cheeky sausage-pattern graphic. Place three realistic sealed clear sausage packs in an attractive fan in front of and beside the closed box, not inside it: light peach-tan smooth frankfurters, pale herb-speckled bratwurst, reddish-brown coarse kransky. Vacuum-pouch seams and food textures look photographic, with controlled reflections. The distinct unboxed food spread is clearly readable and separate from the mascot/card. No loose raw sausages on cardboard, no invented product labels or supplier marks.
 COMPOSITION: redesign the arrangement into a balanced editorial product still life. Mascot and readable card on the left, closed carton in the back-right, fanned sausage packs in the front-right. The card about 45% of canvas width, mascot face fully visible above it and red shoes below. Entire subjects inside square frame with at least 6% clean margins. The package must be clearly smaller and shallower than the old open carton. Warm cream #FFF5DD seamless backdrop. Bold, cheerful, slightly cheeky Australian BBQ branding. Finished art should blend expressive retro illustration with believable product photography.
 No web UI, added headlines, watermarks, extra props, extra characters, or collage panels. Square high-resolution image.
+
+
+## Recipes collection and chicken dinner campaign — 15 September 2026
+
+Mode: built-in image generation. Original PNG files are in `brand/photography/`; website versions are WebP quality 88 at 1200, 800, and 480 px. Food photos are in `public/images/food/`; campaign artwork is in `public/images/`. Food images are generated editorial illustrations of the seeded recipes.
+
+The campaign uses `brand/wiener-mascot-leaning.png` as its mascot reference and the generated chicken dish as its food reference.
+
+### lemon-mustard-chicken
+
+Original: `brand/photography/lemon-mustard-chicken.png`.
+
+Use case: photorealistic-natural.
+Asset type: square recipe food photograph for Wiener Box, a playful Australian food brand.
+Primary request: a beautiful completely realistic cooked lemon-and-mustard chicken tray bake, enough for four, ready to eat. Four bone-in skin-on chicken thighs with crisp deep-golden skin, roasted small potatoes with cut golden edges, a few roasted lemon wedges, garlic cloves and scattered fresh thyme sprigs in a low cream enamel roasting dish. A thin glossy mustard pan sauce, visible whole mustard seeds, appetising browned crispy edges. No sausages in this dish.
+Composition: elevated three-quarter food photography view, entire rectangular enamel dish visible within the square frame with 7% margin, on a flat warm cream #FFF5DD tabletop. Modest folded mustard-yellow linen tucked under the back edge. The food fills most of the composition. Premium editorial recipe photography, realistic proportions, warm upper-left daylight and soft shadows, natural home-cooked food with tactile surfaces, tasteful restraint, sharp appetising food detail.
+No text, logo, mascot, people, cartoon elements, packaging, watermarks, uncooked pink chicken, utensils covering the food, extreme food gloss or CGI. Square high-resolution image.
+
+### wiener-chicken-dinner
+
+Original: `brand/photography/wiener-chicken-dinner.png`.
+
+Use case: ads-marketing.
+Asset type: square website hero campaign artwork for Wiener Box.
+Input image 1 is the exact original orange sausage mascot identity reference. Input image 2 is the prepared chicken dish to include.
+Create a funny new composition: our orange sausage mascot is wearing a clearly ridiculous CHICKEN COSTUME, proudly presenting the realistic lemon-mustard chicken dinner. Preserve recognisable orange elongated sausage face and body, large cream eyes, smiling black mouth, black rubber-hose legs, cream gloves, oversized red shoes, heavy black outlines, vintage print grain. Keep the character illustrated. Costume: cream-white fluffy feather suit around sausage body, little scalloped illustrated wings, open-faced chicken hood with bright red comb and a little yellow beak above the mascot's face, small white tail feathers. Orange face and red shoes clearly visible. He should look like a sausage in a fancy-dress chicken suit, not a real bird or a different mascot. Cheeky delighted expression, proud little showman's pose.
+Put mascot standing on left at about 75% canvas height, one gloved hand presenting the dish and the other gesturing proudly. On right in the foreground show the PHOTOREALISTIC cream enamel roasting dish of four golden crispy chicken thighs with roast potato pieces, lemon wedges, garlic and thyme from image 2. It is sitting safely on the tabletop, not balancing precariously on the mascot. Keep the actual food beautifully realistic with warm natural lighting and realistic shadows. The dish fills the right half and overlaps slightly in front of mascot's lower body but both red shoes stay visible.
+Warm flat cream #FFF5DD seamless background, minimal clean tabletop, whole character and dish entirely in square frame with generous 7% margins. Blend bold retro 2D mascot art and real food photography as in an editorial ad. Humour comes from the sausage in chicken disguise. No box, no membership card, no text, no logos, no caption, no border, no watermark. High-resolution square image.
+
+### potato-salad
+
+Original: `brand/photography/potato-salad.png`.
+
+Use case: photorealistic-natural. Asset type: square editorial recipe photo for Wiener Box. Realistic cooked food, warm upper-left daylight, soft natural shadows, warm cream #FFF5DD tabletop, mustard-yellow and red accents, elevated three-quarter view. Entire main plate or bowl in frame, 8% breathing room, no text, logos, packaging, people, cartoon, or watermarks. Premium but approachable home cooking, tactile natural food surfaces, appetising and restrained. Warm German potato salad: a shallow cream ceramic serving bowl of waxy potato slices coated in a light glossy vinegar-mustard dressing, finely chopped translucent onion and fresh chopped chives. No mayonnaise, no bacon, no sausage. Tiny flecks of black pepper. A mustard-yellow linen edge at the rear, no other dishes. The salad fills the bowl generously, delicious authentic side dish.
+
+### apple-sauerkraut
+
+Original: `brand/photography/apple-sauerkraut.png`.
+
+Use case: photorealistic-natural. Asset type: square editorial recipe photo for Wiener Box. Realistic cooked food, warm upper-left daylight, soft natural shadows, warm cream #FFF5DD tabletop, mustard-yellow and red accents, elevated three-quarter view. Entire main plate or bowl in frame, 8% breathing room, no text, logos, packaging, people, cartoon, or watermarks. Premium but approachable home cooking, tactile natural food surfaces, appetising and restrained. Warm apple sauerkraut: a low terracotta-red bowl filled with pale golden sauerkraut, soft translucent onion strands, small softened pale apple pieces and a few caraway seeds. Light glossy butter finish. One small parsley sprig. A subtle cream linen corner. Focus on the delicate cooked cabbage texture, no meat, no sausage, no extra dishes.
+
+### curry-ketchup
+
+Original: `brand/photography/curry-ketchup.png`.
+
+Use case: photorealistic-natural. Asset type: square editorial recipe photo for Wiener Box. Realistic cooked food, warm upper-left daylight, soft natural shadows, warm cream #FFF5DD tabletop, mustard-yellow and red accents, elevated three-quarter view. Entire main plate or bowl in frame, 8% breathing room, no text, logos, packaging, people, cartoon, or watermarks. Premium but approachable home cooking, tactile natural food surfaces, appetising and restrained. Homemade curry ketchup: a small cream bowl of thick rich tomato-red curry sauce, swirled surface with a light dusting of golden curry powder, a small steel teaspoon resting beside the bowl with a little sauce on it. Mustard-yellow linen underneath one corner. The sauce is the hero and the bowl occupies 70% of the frame. No sausages, no fries, no raw vegetables, no additional dishes.
+
+### sweet-mustard
+
+Original: `brand/photography/sweet-mustard.png`.
+
+Use case: photorealistic-natural. Asset type: square editorial recipe photo for Wiener Box. Realistic cooked food, warm upper-left daylight, soft natural shadows, warm cream #FFF5DD tabletop, mustard-yellow and red accents, elevated three-quarter view. Entire main plate or bowl in frame, 8% breathing room, no text, logos, packaging, people, cartoon, or watermarks. Premium but approachable home cooking, tactile natural food surfaces, appetising and restrained. Sweet Bavarian-style mustard: a small shallow mustard-yellow ceramic bowl filled with rustic amber-brown grainy sweet mustard, clearly visible yellow and brown whole and cracked mustard seeds in a thick glossy paste. A short wood spoon resting beside it, very small scattered mustard seeds, muted red linen folded at back. No sausages, no pretzels, no other dishes. The mustard has a coarse seeded texture, not smooth yellow American mustard.
+
+
+## Chicken sausage correction — 15 September 2026
+
+Mode: built-in image editing. Supersedes the chicken-thigh recipe and campaign above. Chicken sausage tray bake is the final dish. Website originals: `brand/photography/lemon-mustard-chicken-sausages.png` and `brand/photography/wiener-chicken-sausage-dinner.png`. Final assets use those basenames in `public/images/food/` and `public/images/` respectively, at 1200, 800 and 480 px, WebP quality 88.
+
+### Recipe photo edit prompt
+
+Edit the supplied image. Replace ALL roast chicken thigh meat with a prepared CHICKEN SAUSAGE tray bake. The dish contains eight plump real cooked chicken sausages in natural casings: pale golden tan with appetising browned patches, subtle herb flecks, rounded sausage ends, elongated cylindrical sausage links. Arrange them naturally among golden roasted baby potatoes, lemon wedges, whole garlic cloves, thyme and a glossy mustard pan sauce in the cream enamel roasting tray. Absolutely no chicken thighs, drumsticks, breasts, wings, bones or whole pieces of chicken meat. These are actual realistic cooked CHICKEN SAUSAGE LINKS. Keep photography deliciously realistic, natural soft light and warm cream #FFF5DD setting, mustard cloth, same square frame and food photography aesthetic. No text or new border.
+
+### Campaign edit prompt
+
+Use case: precise compositing edit. Edit the supplied image. Replace ALL roast chicken thigh meat with a prepared CHICKEN SAUSAGE tray bake. The dish contains eight plump real cooked chicken sausages in natural casings: pale golden tan with appetising browned patches, subtle herb flecks, rounded sausage ends, elongated cylindrical sausage links. Arrange them naturally among golden roasted baby potatoes, lemon wedges, whole garlic cloves, thyme and a glossy mustard pan sauce in the cream enamel roasting tray. Absolutely no chicken thighs, drumsticks, breasts, wings, bones or whole pieces of chicken meat. These are actual realistic cooked CHICKEN SAUSAGE LINKS. Keep photography deliciously realistic, natural soft light and warm cream #FFF5DD setting, mustard cloth, same square frame and food photography aesthetic. No text or new border.
+Preserve the exact illustrated orange sausage mascot wearing the funny white fluffy chicken costume, the chicken head hood, red comb, yellow beak, smiling orange sausage face, cream gloves and red shoes. Preserve its drawing style, face, pose, proportions, costume, heavy black outlines and texture completely. Change ONLY the contents of the roasting tray from chicken thighs to the chicken sausage tray bake specified above. Keep the tray in the same position to the lower right and mascot to the left. Eight appetising elongated browned chicken sausages with potatoes and lemon. The chicken COSTUME remains, but every piece of meat in the tray is a SAUSAGE. No text, no outlines around canvas.
+
+
+## Uncropped slideshow framing — 15 September 2026
+
+Mode: built-in image editing. Edit target: `brand/photography/wiener-chicken-sausage-dinner.png`. Final original: `brand/photography/wiener-chicken-sausage-dinner-framed.png`. Website assets: `public/images/wiener-chicken-sausage-dinner-framed.webp`, `public/images/wiener-chicken-sausage-dinner-framed-800.webp`, and `public/images/wiener-chicken-sausage-dinner-framed-480.webp` (1200, 800, and 480 px; WebP quality 88). The full tray, cloth, and mascot now fit inside the artwork with cream margins.
+
+### Final prompt
+
+Use case: precise-object-edit.
+Asset type: square homepage slideshow artwork.
+Input image 1: EDIT TARGET, existing Wiener Box campaign.
+Primary request: fix the cropped right edge by zooming out and completing the whole composition. The original cuts off the roasting tray on the right and crowds the mascot against the top. Reframe the SAME scene with substantially more breathing room on ALL sides. Make the combined mascot and roasting tray smaller within the square canvas, about 78% of total width and 80% of total height. Leave at least 10% warm cream empty space to the right of the COMPLETE tray, at least 8% under it, 8% above the mascot comb, and 8% to the left of his shoe. Show the ENTIRE roasting dish: complete rectangular enamel rim, all four corners, right outer wall, front wall, and mustard cloth fully within frame. Reconstruct the missing right-hand portion of the dish naturally. No object may touch or be cut by any image edge.
+Preserve invariants: the identical orange sausage mascot in his cream-white fluffy chicken costume, red comb, yellow hood beak, orange face, cream gloves, red shoes, black rubber-hose legs, heavy black illustration outlines, distressed vintage print texture, smiling face, same presenting pose. Keep him left of the tray, whole body visible. Preserve the delicious PHOTOREALISTIC CHICKEN SAUSAGE tray bake on the right: eight golden browned sausage links in natural casings, roast potatoes, lemon wedges, garlic, thyme and mustard pan juices in a cream enamel roasting tray. These are chicken SAUSAGES, not chicken thighs or pieces of chicken.
+Scene: seamless warm cream #FFF5DD background and surface, soft natural grounded shadows. Match the existing colours and mixed illustration/photography style. Preserve relative character and dish proportions while scaling down the composition. No new props, no text, no border, no outline around the canvas, no rounded photo frame, no watermark. Square output. This is a framing correction; retain the existing subject design and food. The whole tray MUST have a clear cream margin to its right and bottom.

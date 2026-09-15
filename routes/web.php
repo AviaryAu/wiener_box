@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LaunchController;
+use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\SeoController;
 use App\Http\Controllers\StorefrontController;
 use Illuminate\Http\Request;
@@ -14,6 +15,8 @@ Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 
 Route::get('/', [StorefrontController::class, 'home'])->name('home');
 Route::get('/shop', [StorefrontController::class, 'shop'])->name('shop');
+Route::get('/recipes', [RecipeController::class, 'index'])->name('recipes');
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 Route::get('/products/{listing}', [StorefrontController::class, 'product'])->name('product');
 Route::get('/delivery', fn () => Inertia::render('Delivery'))->name('delivery');
 Route::post('/delivery/check', [LaunchController::class, 'check'])->middleware('throttle:30,1');
