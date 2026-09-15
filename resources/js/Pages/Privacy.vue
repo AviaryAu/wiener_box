@@ -1,9 +1,5 @@
-<script setup lang="ts">
-import { Head } from '@inertiajs/vue3';
-</script>
 <template>
     <article class="container section prose">
-        <Head title="Preview privacy notice" />
         <p class="eyebrow">THE PLAIN-ENGLISH STUFF.</p>
         <h1>Preview privacy notice.</h1>
         <p>

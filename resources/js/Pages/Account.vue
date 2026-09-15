@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link, usePage } from '@inertiajs/vue3';
+import { Link, usePage } from '@inertiajs/vue3';
 import { Package, Repeat2, ArrowUpRight, LogOut } from '@lucide/vue';
 import { money, type SharedProps } from '../types';
 const page = usePage<SharedProps>();
@@ -7,7 +7,6 @@ defineProps<{ orders: { reference: string; status: string; total: number; placed
 </script>
 <template>
     <div class="container section account-page">
-        <Head title="Your account" />
         <div class="section-heading">
             <div>
                 <p class="eyebrow">YOUR CORNER OF THE WURST.</p>

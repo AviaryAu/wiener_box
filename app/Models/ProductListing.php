@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Lunar\Models\Product;
@@ -23,6 +24,11 @@ class ProductListing extends Model
     public function getRouteKeyName(): string
     {
         return 'slug';
+    }
+
+    public function scopePublished(Builder $query): void
+    {
+        $query->where('published', true)->whereHas('product', fn (Builder $product) => $product->where('status', 'published'));
     }
 
     public function storefrontData(): array

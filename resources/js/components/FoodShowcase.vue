@@ -18,7 +18,12 @@ import MascotArtwork from './MascotArtwork.vue';
                     loading="lazy"
                     decoding="async"
                 />
-                <MascotArtwork pose="grill" class="food-cook" sizes="(max-width: 760px) 28vw, 180px" />
+                <MascotArtwork
+                    pose="grill"
+                    emphasis
+                    class="food-cook"
+                    sizes="(max-width: 760px) 28vw, 180px"
+                />
             </figure>
             <div class="food-showcase-copy">
                 <p class="eyebrow">A LITTLE SIZZLE. A LOT TO LOVE.</p>

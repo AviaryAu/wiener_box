@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
-import { ArrowUpRight, ArrowRight, Sparkles } from '@lucide/vue';
+import { Link } from '@inertiajs/vue3';
+import { ArrowUpRight } from '@lucide/vue';
 import ProductCard from '../components/ProductCard.vue';
 import ProductImage from '../components/ProductImage.vue';
 import WaitlistForm from '../components/WaitlistForm.vue';
 import FoodShowcase from '../components/FoodShowcase.vue';
 import MascotArtwork from '../components/MascotArtwork.vue';
+import HeroSlideshow from '../components/HeroSlideshow.vue';
 import type { Product } from '../types';
 defineProps<{ products: Product[] }>();
 const faqs = [
@@ -29,59 +30,7 @@ const faqs = [
 </script>
 <template>
     <div>
-        <Head title="Serious sausage. Silly name."
-            ><meta
-                name="description"
-                content="Meet Wiener Box. German-style sausage subscriptions, generous gifts and good times, coming to Sydney."
-        /></Head>
-        <section class="hero container">
-            <div class="hero-copy">
-                <p class="eyebrow"><span class="tiny-star">✳</span> SERIOUS SAUSAGE. SILLY NAME.</p>
-                <h1>THE BEST<br />OF THE<br /><span>WURST.</span></h1>
-                <p class="hero-description">
-                    German-style sausages. A box of good times. <br />A very good reason to fire up the
-                    barbie.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#boxes" class="button primary">Find your box <ArrowUpRight :size="21" /></a
-                    ><Link href="/shop?category=gift" class="text-link"
-                        >Give a little wurst <ArrowRight :size="18"
-                    /></Link>
-                </div>
-                <div class="hero-footnote">
-                    <span class="status-dot"></span>Coming to Sydney · Join the launch list
-                </div>
-            </div>
-            <div class="hero-art">
-                <div class="hero-photo">
-                    <div class="hero-sticker">
-                        100%<span>GOOD<br />TIMES</span><Sparkles :size="18" />
-                    </div>
-                    <ProductImage
-                        slug="the-regular"
-                        name="The Big Wiener Club"
-                        sizes="(max-width: 600px) 100vw, 50vw"
-                        loading="eager"
-                        fetchpriority="high"
-                    />
-                </div>
-                <img
-                    class="hero-mascot"
-                    src="/images/wiener-mascot-leaning.webp"
-                    srcset="
-                        /images/wiener-mascot-leaning-360.webp 360w,
-                        /images/wiener-mascot-leaning.webp     720w
-                    "
-                    sizes="(max-width: 600px) 68vw, 42vw"
-                    width="720"
-                    height="913"
-                    alt=""
-                    aria-hidden="true"
-                    decoding="async"
-                    draggable="false"
-                />
-            </div>
-        </section>
+        <HeroSlideshow />
         <div class="brand-ribbon" aria-hidden="true">
             <span>GOOD TIMES COME IN LINKS</span><span>✳</span><span>BIG FLAVOUR. LITTLE FUSS.</span
             ><span>✳</span><span>GOOD TIMES COME IN LINKS</span><span>✳</span>
@@ -91,9 +40,10 @@ const faqs = [
             <div class="section-heading boxes-heading">
                 <div>
                     <p class="eyebrow">THERE’S A BOX FOR THAT.</p>
-                    <h2>Pick your kind of good time.</h2>
+                    <h2>Pick your kind of <span class="brand-underline">good time.</span></h2>
+                    <p>German-style sausage boxes, monthly discoveries and gifts, coming to Sydney.</p>
                 </div>
-                <MascotArtwork pose="choose" sizes="(max-width: 600px) 110px, 160px" />
+                <MascotArtwork pose="choose" emphasis sizes="(max-width: 600px) 110px, 160px" />
                 <Link href="/shop" class="text-link"
                     >Explore the whole line-up <ArrowUpRight :size="20"
                 /></Link>
@@ -111,9 +61,9 @@ const faqs = [
                 <div class="section-heading how-heading">
                     <div>
                         <p class="eyebrow">FROM OUR BOX TO YOUR BBQ.</p>
-                        <h2>Good food. Zero song and dance.</h2>
+                        <h2><span class="brand-underline">Good food.</span> Zero song and dance.</h2>
                     </div>
-                    <MascotArtwork pose="deliver" sizes="(max-width: 600px) 120px, 180px" />
+                    <MascotArtwork pose="deliver" emphasis sizes="(max-width: 600px) 120px, 180px" />
                 </div>
                 <div class="steps-grid">
                     <article>
@@ -187,11 +137,11 @@ const faqs = [
         <section class="section container faq-section">
             <div class="faq-intro">
                 <p class="eyebrow">A FEW BURNING QUESTIONS.</p>
-                <h2>The need<br />to know.</h2>
+                <h2>The need<br /><span class="brand-underline">to know.</span></h2>
                 <Link href="/how-it-works" class="text-link"
                     >Get the full lowdown <ArrowUpRight :size="20"
                 /></Link>
-                <MascotArtwork pose="curious" sizes="(max-width: 600px) 120px, 180px" />
+                <MascotArtwork pose="curious" emphasis sizes="(max-width: 600px) 120px, 180px" />
             </div>
             <div class="faq-list">
                 <details v-for="[question, answer] in faqs" :key="question">

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import { ArrowUpRight, Check, Minus, Plus } from '@lucide/vue';
 import { money, type Product } from '../types';
 import ProductGallery from '../components/ProductGallery.vue';
@@ -11,10 +11,11 @@ function add() {
 </script>
 <template>
     <div class="container section">
-        <Head :title="product.name" />
-        <div class="breadcrumbs">
-            <Link href="/shop">The line-up</Link><span>/</span><span>{{ product.name }}</span>
-        </div>
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <Link href="/">Home</Link><span aria-hidden="true">/</span>
+            <Link href="/shop">Sausage boxes & packs</Link><span aria-hidden="true">/</span>
+            <span aria-current="page">{{ product.name }}</span>
+        </nav>
         <div class="product-detail">
             <ProductGallery
                 :key="product.slug"

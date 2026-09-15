@@ -2,25 +2,30 @@
 import { computed } from 'vue';
 import { mascotArtwork } from '../mascotArtwork';
 
-const props = withDefaults(defineProps<{ pose: keyof typeof mascotArtwork; sizes?: string }>(), {
-    sizes: '180px',
-});
+const props = withDefaults(
+    defineProps<{ pose: keyof typeof mascotArtwork; sizes?: string; emphasis?: boolean }>(),
+    { sizes: '180px', emphasis: false },
+);
 const artwork = computed(() => mascotArtwork[props.pose]);
 </script>
 <template>
-    <img
+    <span
         class="section-mascot"
+        :class="{ 'mascot-emphasis': emphasis }"
         :data-pose="pose"
-        :src="artwork.src"
-        :srcset="artwork.srcset"
-        :sizes="sizes"
-        :width="artwork.width"
-        :height="artwork.height"
-        :style="{ maskImage: `url(${artwork.mask})`, WebkitMaskImage: `url(${artwork.mask})` }"
-        alt=""
         aria-hidden="true"
-        loading="lazy"
-        decoding="async"
-        draggable="false"
-    />
+    >
+        <img
+            :src="artwork.src"
+            :srcset="artwork.srcset"
+            :sizes="sizes"
+            :width="artwork.width"
+            :height="artwork.height"
+            :style="{ maskImage: `url(${artwork.mask})`, WebkitMaskImage: `url(${artwork.mask})` }"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            draggable="false"
+        />
+    </span>
 </template>

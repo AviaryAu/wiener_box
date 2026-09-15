@@ -1,13 +1,12 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 import { ArrowUpRight, PackageCheck, Truck, Utensils } from '@lucide/vue';
 </script>
 <template>
     <div class="container section">
-        <Head title="How it works" />
         <div class="narrow-intro">
             <p class="eyebrow">A LITTLE METHOD TO THE MUSTARD.</p>
-            <h1>A good feed.<br />A simple idea.</h1>
+            <h1>A good feed.<br />A <span class="brand-underline">simple idea.</span></h1>
             <p class="page-intro">
                 Wiener Box is a German-style sausage service in the making. A regular delivery of new
                 favourites, with one-off boxes, gifts and individual packs for every other occasion.

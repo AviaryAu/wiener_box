@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Head, Link, router, usePage } from '@inertiajs/vue3';
+import { Link, router, usePage } from '@inertiajs/vue3';
 import { ArrowUpRight, Minus, Plus, Trash2, ShoppingBag } from '@lucide/vue';
 import { money, type SharedProps } from '../types';
 import ProductImage from '../components/ProductImage.vue';
@@ -24,7 +24,6 @@ const groups = computed(() =>
 </script>
 <template>
     <div class="container section cart-page">
-        <Head title="Your box" />
         <p class="eyebrow">GOOD CHOICES, ALL ROUND.</p>
         <h1>Your box of good times.</h1>
         <div v-if="!cart.lines.length" class="empty-state">

@@ -3,10 +3,14 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\LaunchController;
+use App\Http\Controllers\SeoController;
 use App\Http\Controllers\StorefrontController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+
+Route::get('/robots.txt', [SeoController::class, 'robots'])->name('robots');
+Route::get('/sitemap.xml', [SeoController::class, 'sitemap'])->name('sitemap');
 
 Route::get('/', [StorefrontController::class, 'home'])->name('home');
 Route::get('/shop', [StorefrontController::class, 'shop'])->name('shop');

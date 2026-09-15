@@ -3,6 +3,7 @@ import { computed, ref, watch } from 'vue';
 import { Link, usePage } from '@inertiajs/vue3';
 import { ArrowUpRight, ShoppingBag, UserRound, Menu, X, ArrowRight } from '@lucide/vue';
 import type { SharedProps } from '../types';
+import SeoHead from './SeoHead';
 const page = usePage<SharedProps>();
 const menuOpen = ref(false);
 const cartQuantity = computed(() => page.props.cart.quantity);
@@ -22,15 +23,16 @@ const links = [
 
 <template>
     <div class="site-shell">
+        <SeoHead />
         <a class="skip-link" href="#main">Skip to content</a>
         <div class="announcement">
             <span>GERMAN ROOTS. GOOD TIMES.</span
             ><Link href="/delivery">A little wurst is coming to Sydney <ArrowUpRight :size="13" /></Link>
         </div>
         <header class="site-header container">
-            <Link href="/" class="wordmark" aria-label="Wiener Box home"
-                >WIENER<span>BOX<span class="wordmark-dot">✳</span></span></Link
-            >
+            <Link href="/" class="wordmark" aria-label="Wiener Box home">
+                <img src="/images/wiener-box-logo.svg" width="470" height="315" alt="" />
+            </Link>
             <nav aria-label="Main navigation" class="desktop-nav">
                 <Link v-for="link in links" :key="link.href" :href="link.href">{{ link.label }}</Link>
             </nav>
@@ -68,7 +70,9 @@ const links = [
         <footer class="site-footer">
             <div class="container footer-grid">
                 <div>
-                    <Link href="/" class="wordmark footer-wordmark">WIENER<span>BOX.</span></Link>
+                    <Link href="/" class="wordmark footer-wordmark" aria-label="Wiener Box home">
+                        <img src="/images/wiener-box-logo.svg" width="470" height="315" alt="" />
+                    </Link>
                     <p>Serious sausage.<br />Silly name.</p>
                     <span class="footer-tag">GOOD TIMES COME IN LINKS.</span>
                 </div>

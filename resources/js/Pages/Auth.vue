@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { Head, Link, useForm } from '@inertiajs/vue3';
+import { Link, useForm } from '@inertiajs/vue3';
 import { ArrowUpRight, LockKeyhole } from '@lucide/vue';
 import ProductImage from '../components/ProductImage.vue';
 const props = defineProps<{
@@ -43,7 +43,6 @@ function submit() {
 </script>
 <template>
     <div class="container auth-page">
-        <Head :title="button" />
         <div class="auth-intro">
             <p class="eyebrow">YOUR LITTLE CORNER OF THE WURST.</p>
             <h1>{{ title }}</h1>

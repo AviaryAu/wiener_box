@@ -31,6 +31,13 @@ export interface SharedProps {
     flash: { message?: string };
     launchMode: boolean;
     errors: Record<string, string>;
+    seo: {
+        title: string;
+        canonical: string | null;
+        meta: { key: string; attribute: 'name' | 'property'; name: string; content: string }[];
+        structuredData: string | null;
+        breadcrumbs: { name: string; url: string }[];
+    };
 }
 export const money = (cents: number | null) =>
     cents === null

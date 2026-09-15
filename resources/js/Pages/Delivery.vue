@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Head } from '@inertiajs/vue3';
 import axios from 'axios';
 import { MapPin, ArrowUpRight } from '@lucide/vue';
 import WaitlistForm from '../components/WaitlistForm.vue';
@@ -26,11 +25,10 @@ async function check() {
 </script>
 <template>
     <div class="container section">
-        <Head title="Check your postcode" />
         <div class="delivery-grid">
             <div>
                 <p class="eyebrow">LET’S SEE WHERE YOU’RE AT.</p>
-                <h1>Good times,<br />closer to home.</h1>
+                <h1>Good times,<br /><span class="brand-underline">closer to home.</span></h1>
                 <p class="page-intro">
                     Sydney, you’re first on our list. We’re planning our chilled delivery routes and want to
                     know where you’d like us to land.

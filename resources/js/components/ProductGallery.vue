@@ -146,6 +146,7 @@ onBeforeUnmount(() => {
                         :width="active.width"
                         :height="active.height"
                         loading="eager"
+                        fetchpriority="high"
                         decoding="async"
                         @error="imageFailed = true"
                     />

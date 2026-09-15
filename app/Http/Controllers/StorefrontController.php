@@ -29,6 +29,6 @@ class StorefrontController extends Controller
 
     private function products(): Builder
     {
-        return ProductListing::where('published', true)->whereHas('product', fn ($query) => $query->where('status', 'published'))->with('product.variants.prices.currency')->orderBy('position');
+        return ProductListing::query()->published()->with('product.variants.prices.currency')->orderBy('position');
     }
 }

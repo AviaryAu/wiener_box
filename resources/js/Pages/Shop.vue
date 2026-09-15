@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import { Head, usePage } from '@inertiajs/vue3';
+import { usePage } from '@inertiajs/vue3';
 import { Search } from '@lucide/vue';
 import ProductCard from '../components/ProductCard.vue';
 import type { Product } from '../types';
@@ -25,11 +25,11 @@ const filtered = computed(() =>
 </script>
 <template>
     <div class="container section shop-page">
-        <Head title="Shop the line-up" />
         <p class="eyebrow">LET’S FIND YOUR FLAVOUR.</p>
-        <h1>The whole lovely lot.</h1>
+        <h1>Sausage boxes. <span class="brand-underline">Good times.</span></h1>
         <p class="page-intro">
-            Regular favourites. One-off flings. Gifts worth opening.<br />Meet the Wiener Box launch line-up.
+            German-style sausage subscriptions, one-off boxes, gifts and individual packs.<br />
+            Meet the Wiener Box launch line-up, with chilled Sydney delivery planned.
         </p>
         <div class="shop-tools">
             <div class="filter-list" aria-label="Product categories">
