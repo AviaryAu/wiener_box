@@ -1,0 +1,15 @@
+{
+  "annualNetRevenue": 230630.32964163227,
+  "annualAfterOwner": -6659.805098029627,
+  "lowestHeadroom": -4003.477412085246,
+  "month12Subscribers": 335.0310668985164,
+  "month12Orders": 458.0279602086648,
+  "month12Result": 2927.503657338544,
+  "prelaunch": 11000,
+  "fundingNeed": 29003.477412085245,
+  "unitContribution": [
+    29.2875,
+    33.54859090909089,
+    17.126499999999993
+  ]
+}
