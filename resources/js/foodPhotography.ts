@@ -31,7 +31,7 @@ function photo(
 const productPhotos: Record<string, FoodPhoto> = {
     'classic-wieners': photo(
         'classic-wieners',
-        'Classic wiener sausages on a cream plate with mustard and cornichons — generated serving suggestion',
+        'Classic wiener sausages on a cream plate with mustard and cornichons',
         {
             reference: {
                 name: 'Continental Frankfurter',
@@ -39,31 +39,23 @@ const productPhotos: Record<string, FoodPhoto> = {
             },
         },
     ),
-    bratwurst: photo(
-        'bratwurst',
-        'Lightly browned German bratwurst with mustard and sauerkraut — generated serving suggestion',
-        {
-            reference: {
-                name: 'German Bratwurst',
-                url: 'https://www.german-butchery.com.au/products/sausages/thueringerbratwurst',
-            },
+    bratwurst: photo('bratwurst', 'Lightly browned German bratwurst with mustard and sauerkraut', {
+        reference: {
+            name: 'German Bratwurst',
+            url: 'https://www.german-butchery.com.au/products/sausages/thueringerbratwurst',
         },
-    ),
-    'cheese-kransky': photo(
-        'cheese-kransky',
-        'Smoked cheese kransky, sliced to show the cheese filling — generated serving suggestion',
-        {
-            reference: {
-                name: 'Cheese Kransky',
-                url: 'https://www.german-butchery.com.au/products/sausages/kranskycheese',
-            },
+    }),
+    'cheese-kransky': photo('cheese-kransky', 'Smoked cheese kransky, sliced to show the cheese filling', {
+        reference: {
+            name: 'Cheese Kransky',
+            url: 'https://www.german-butchery.com.au/products/sausages/kranskycheese',
         },
-    ),
+    }),
 };
 
 export const sausageSpread = photo(
     'sausage-spread',
-    'A sharing platter of German-style sausages with mustard, pickles and bread — generated serving suggestion',
+    'A sharing platter of German-style sausages with mustard, pickles and bread',
     { landscape: true },
 );
 
@@ -90,7 +82,7 @@ function studioPhoto(
 export const defaultProductPhoto = studioPhoto(
     'regular-open-box',
     'Open box',
-    'An open mustard Wiener Box showing individually sealed packs of assorted sausages — generated box preview',
+    'An open mustard Wiener Box showing individually sealed packs of assorted sausages',
     'box',
 );
 
@@ -107,7 +99,7 @@ const galleries: Record<string, readonly FoodPhoto[]> = {
         studioPhoto(
             'fling-open-box',
             'Open box',
-            'An open Wiener Box on a sage tabletop with mixed sausage packs visible inside — generated box preview',
+            'An open Wiener Box on a sage tabletop with mixed sausage packs visible inside',
             'box',
         ),
         ...boxContents,
@@ -116,7 +108,7 @@ const galleries: Record<string, readonly FoodPhoto[]> = {
         studioPhoto(
             'gift-open-box',
             'Open gift box',
-            'An open Wiener Box gift carton with sealed sausage packs, a red ribbon and a gift card — generated box preview',
+            'An open Wiener Box gift carton with sealed sausage packs, a red ribbon and a gift card',
             'box',
         ),
         ...boxContents,
@@ -126,7 +118,7 @@ const galleries: Record<string, readonly FoodPhoto[]> = {
         studioPhoto(
             'wieners-close-up',
             'A closer look',
-            'A close view of lightly smoked wieners with one cut to show the fine filling — generated serving suggestion',
+            'A close view of lightly smoked wieners with one cut to show the fine filling',
             'serving',
             productPhotos['classic-wieners'].reference,
         ),
@@ -136,7 +128,7 @@ const galleries: Record<string, readonly FoodPhoto[]> = {
         studioPhoto(
             'bratwurst-close-up',
             'A closer look',
-            'A close view of pale golden German bratwurst with a cut section — generated serving suggestion',
+            'A close view of pale golden German bratwurst with a cut section',
             'serving',
             productPhotos.bratwurst.reference,
         ),
@@ -146,7 +138,7 @@ const galleries: Record<string, readonly FoodPhoto[]> = {
         studioPhoto(
             'kransky-close-up',
             'A closer look',
-            'A close view of smoked cheese kransky with pale cheese pieces in the sliced filling — generated serving suggestion',
+            'A close view of smoked cheese kransky with pale cheese pieces in the sliced filling',
             'serving',
             productPhotos['cheese-kransky'].reference,
         ),
@@ -163,6 +155,6 @@ export function productPhoto(slug: string | null): FoodPhoto | undefined {
 
 export function photoCaption(photo: FoodPhoto): string {
     return photo.kind === 'box'
-        ? 'AI-generated box preview. Final selection, quantities and packaging may differ.'
-        : 'AI-generated serving suggestion. Final products and pack sizes may differ; accompaniments are not included.';
+        ? 'Final selection, quantities and packaging may differ.'
+        : 'Final products and pack sizes may differ; accompaniments are not included.';
 }

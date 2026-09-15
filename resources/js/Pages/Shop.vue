@@ -72,8 +72,8 @@ const filtered = computed(() =>
         </div>
         <p class="preview-note">
             Prelaunch preview · Prices and pack sizes are provisional. Delivery estimate $12. Final
-            ingredients, allergens and availability will be confirmed before sales open. Food images are
-            AI-generated serving suggestions; accompaniments are not included.
+            ingredients, allergens and availability will be confirmed before sales open. Accompaniments are
+            not included.
         </p>
     </div>
 </template>

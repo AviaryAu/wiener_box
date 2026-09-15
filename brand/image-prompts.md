@@ -62,7 +62,7 @@ Use case: background-extraction. Edit target: attached corrected WIENER BOX pack
 
 ## Food photography — 15 September 2026
 
-Mode: built-in image generation, `photorealistic-natural`. Four original photorealistic serving concepts supplement the mascot and packaging. These are AI-generated images, not photographs of the supplier's stock. They are labelled as serving suggestions in the storefront.
+Mode: built-in image generation, `photorealistic-natural`. Four original photorealistic serving concepts supplement the mascot and packaging.
 
 ### Final saved assets
 
@@ -215,7 +215,7 @@ Final saved assets:
 
 Reference: the user's screenshot of the original waving mascot leaning on an illustrated carton (`codex-clipboard-459674c0-0d52-432f-9877-e81d616f302d.png`). The real open-box photograph remains a separate existing asset. The mascot's right glove overlaps its lower-left frame edge.
 
-The two transparency attempts returned RGB images with baked-in checkerboards. Those variants were rejected. The selected revision has a cream matte and a CSS contour clip for use on the cream hero background; the PNG and WebP files do not contain alpha transparency.
+The two transparency attempts returned RGB images with baked-in checkerboards. Those variants were rejected. The selected revision has a cream matte; the PNG and WebP files do not contain alpha transparency. The hero now uses `public/images/wiener-mascot-outline.svg`, a vector display mask traced from the original outline, including the arm and leg openings. This replaces the coarse CSS polygon while leaving the source artwork unchanged.
 
 ### Extraction prompt
 
@@ -231,3 +231,83 @@ Use case: background-extraction. Edit this mascot asset. The current grey checke
 ### Final selected revision prompt
 
 Use case: precise-object-edit. Edit the supplied isolated Wiener Box sausage mascot. Replace ONLY the grey checkerboard background with a perfectly flat, uniform solid warm cream colour, exact sRGB hex #FFF5DD. Fill all space outside the character including holes between limbs and behind the bent right arm with this same solid cream. There must be NO transparency, NO checkerboard squares, no grain, gradient, texture, vignette, pattern or shadows in the background. Preserve the mascot's exact identity, facial expression, orange colour, black outlines, cream gloves, waving and leaning pose, bright red shoes and small black shoe shadow. Preserve original portrait framing and complete character. No carton, props, letters or extra marks. The background must be a single flat cream colour to blend seamlessly with a website canvas.
+
+## Homepage section poses — 15 September 2026
+
+Mode: built-in image generation, one call per pose using `brand/wiener-mascot-leaning.png` as the character identity reference. The hero itself was preserved.
+
+Saved originals: `brand/mascots/{grill,choose,deliver,gift,curious,announce}.png` (1114 × 1412 each). Each pose has 360 × 456 and 720 × 913 WebP copies at quality 90 in `public/images/mascots`, and a matching `*-outline.svg` display mask. The original PNGs are unchanged. Masks remove the cream background and open spaces between the limbs for clean rendering on cream, yellow and photographic backgrounds.
+
+The shared component is `resources/js/components/MascotArtwork.vue`; `resources/js/mascotArtwork.ts` stores the asset paths and intrinsic dimensions. These illustrations are decorative, lazy-loaded section companions. Parcel props illustrate delivery and gifting; product cards continue to use the existing food and open-box photos.
+
+### Sausage showcase: grill
+
+Original: `brand/mascots/grill.png`. Web: `public/images/mascots/grill-360.webp`, `public/images/mascots/grill-720.webp`. Mask: `public/images/mascots/grill-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The proud cook. Stand in a jaunty relaxed stance wearing a small cream chef's toque above the tied sausage tip. Hold a pair of short closed black barbecue tongs upright in one gloved hand, and give a confident thumbs-up with the other. Big friendly smile looking toward the viewer. The tongs are empty. No grill, flames, plate or food.
+
+### Pick your box: choose
+
+Original: `brand/mascots/choose.png`. Web: `public/images/mascots/choose-360.webp`, `public/images/mascots/choose-720.webp`. Mask: `public/images/mascots/choose-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The helpful host. Stand with feet apart and a slight friendly lean. One gloved arm extends out to the viewer's right with its index finger pointing diagonally down to introduce a product choice; the other arm is bent with palm up in a welcoming presenting gesture. Open-eyed cheerful smile, looking toward the pointing hand. No props or boxes.
+
+### How it works: deliver
+
+Original: `brand/mascots/deliver.png`. Web: `public/images/mascots/deliver-360.webp`, `public/images/mascots/deliver-720.webp`. Mask: `public/images/mascots/deliver-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The happy delivery. Walk briskly toward the viewer's right with one red shoe lifted in a jaunty stride, carrying a small plain mustard cardboard parcel securely in both cream-gloved hands near waist level. Keep the orange body, both eyes and happy face clearly visible above the parcel. The small parcel has black fold lines and a narrow red tape strip, absolutely no lettering. No truck, wheels, extra parcels or speed lines.
+
+### Gifting: gift
+
+Original: `brand/mascots/gift.png`. Web: `public/images/mascots/gift-360.webp`, `public/images/mascots/gift-720.webp`. Mask: `public/images/mascots/gift-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The generous friend. Stand with one knee slightly bent, head tilted fondly, hugging a small bright red square gift with a neat mustard-yellow ribbon and bow in both cream-gloved hands in front of the lower body. The gift sits low enough that the sausage body and smiling face stay fully visible. Warm delighted expression looking at the viewer. No heart symbols, lettering or extra presents.
+
+### Frequently asked questions: curious
+
+Original: `brand/mascots/curious.png`. Web: `public/images/mascots/curious-360.webp`, `public/images/mascots/curious-720.webp`. Mask: `public/images/mascots/curious-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The curious thinker. Stand with one gloved index finger resting under its chin, the other gloved hand on its hip, one eyebrow gently raised, eyes looking up toward the viewer's right, and a small friendly thoughtful smile. One red shoe turned slightly outward. Keep the face large and readable. No question mark, thought bubble or props.
+
+### Launch signup: announce
+
+Original: `brand/mascots/announce.png`. Web: `public/images/mascots/announce-360.webp`, `public/images/mascots/announce-720.webp`. Mask: `public/images/mascots/announce-outline.svg`.
+
+Use case: illustration-story.
+Asset type: one full-body mascot illustration for a Wiener Box homepage section.
+Input image 1 is the strict character identity and drawing-style reference, NOT a pose to repeat.
+Draw the SAME original cheerful orange sausage mascot in the new pose specified below. Preserve its curved frankfurter silhouette with tied sausage ends, tall expressive cream-and-black eyes, friendly expressive eyebrows, black rubber-hose arms and legs, large cream gloves, vivid red oversized shoes, thick smooth black outlines, subtle orange print texture and small simple black shadow under its shoes. The character should be immediately recognisable as the same individual across all poses. No clothing that hides its sausage body; no new character.
+Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
+Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
+New pose: The excited announcer. A lively grounded stance with one red shoe pointed out, holding a small mustard-yellow and black handheld megaphone up near the side of its open smiling mouth in one gloved hand. The megaphone faces the viewer's right and does not obscure the eyes or face. The other hand is raised in a friendly welcoming wave. No sound lines, lettering, confetti or extra props.

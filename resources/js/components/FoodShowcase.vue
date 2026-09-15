@@ -2,6 +2,7 @@
 import { Link } from '@inertiajs/vue3';
 import { ArrowUpRight } from '@lucide/vue';
 import { sausageSpread } from '../foodPhotography';
+import MascotArtwork from './MascotArtwork.vue';
 </script>
 <template>
     <section class="food-showcase-section container" aria-labelledby="food-showcase-title">
@@ -17,7 +18,7 @@ import { sausageSpread } from '../foodPhotography';
                     loading="lazy"
                     decoding="async"
                 />
-                <figcaption>AI-generated serving suggestion</figcaption>
+                <MascotArtwork pose="grill" class="food-cook" sizes="(max-width: 760px) 28vw, 180px" />
             </figure>
             <div class="food-showcase-copy">
                 <p class="eyebrow">A LITTLE SIZZLE. A LOT TO LOVE.</p>

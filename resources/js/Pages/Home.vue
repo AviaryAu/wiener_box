@@ -5,6 +5,7 @@ import ProductCard from '../components/ProductCard.vue';
 import ProductImage from '../components/ProductImage.vue';
 import WaitlistForm from '../components/WaitlistForm.vue';
 import FoodShowcase from '../components/FoodShowcase.vue';
+import MascotArtwork from '../components/MascotArtwork.vue';
 import type { Product } from '../types';
 defineProps<{ products: Product[] }>();
 const faqs = [
@@ -22,7 +23,7 @@ const faqs = [
     ],
     [
         'What about ingredients and allergens?',
-        'We’ll publish supplier-confirmed ingredients, allergens, pack sizes and storage instructions for every product before it goes on sale. Food and box images are AI-generated previews. Final selections, pack sizes and packaging will be confirmed before orders open.',
+        'We’ll publish supplier-confirmed ingredients, allergens, pack sizes and storage instructions for every product before it goes on sale. Final selections, pack sizes and packaging will be confirmed before orders open.',
     ],
 ];
 </script>
@@ -63,7 +64,6 @@ const faqs = [
                         loading="eager"
                         fetchpriority="high"
                     />
-                    <span class="hero-caption">AI-GENERATED BOX PREVIEW</span>
                 </div>
                 <img
                     class="hero-mascot"
@@ -72,7 +72,7 @@ const faqs = [
                         /images/wiener-mascot-leaning-360.webp 360w,
                         /images/wiener-mascot-leaning.webp     720w
                     "
-                    sizes="(max-width: 600px) 80vw, 50vw"
+                    sizes="(max-width: 600px) 68vw, 42vw"
                     width="720"
                     height="913"
                     alt=""
@@ -88,11 +88,12 @@ const faqs = [
         </div>
         <FoodShowcase />
         <section id="boxes" class="section container">
-            <div class="section-heading">
+            <div class="section-heading boxes-heading">
                 <div>
                     <p class="eyebrow">THERE’S A BOX FOR THAT.</p>
                     <h2>Pick your kind of good time.</h2>
                 </div>
+                <MascotArtwork pose="choose" sizes="(max-width: 600px) 110px, 160px" />
                 <Link href="/shop" class="text-link"
                     >Explore the whole line-up <ArrowUpRight :size="20"
                 /></Link>
@@ -102,17 +103,17 @@ const faqs = [
             </div>
             <p class="preview-note">
                 A taste of what’s coming. Preview prices + estimated $12 delivery. Final contents and
-                availability to be confirmed. Images show generated box and contents previews.
+                availability to be confirmed.
             </p>
         </section>
         <section class="how-section">
             <div class="container">
-                <div class="section-heading">
+                <div class="section-heading how-heading">
                     <div>
                         <p class="eyebrow">FROM OUR BOX TO YOUR BBQ.</p>
                         <h2>Good food. Zero song and dance.</h2>
                     </div>
-                    <span class="handwritten-star" aria-hidden="true">✳</span>
+                    <MascotArtwork pose="deliver" sizes="(max-width: 600px) 120px, 180px" />
                 </div>
                 <div class="steps-grid">
                     <article>
@@ -145,9 +146,12 @@ const faqs = [
                         Birthdays. Thank-yous. “I saw this and thought of you.”<br />Some gifts just hit a
                         little differently.
                     </p>
-                    <Link href="/products/the-big-gesture" class="button primary"
-                        >Meet The Big Gesture <ArrowUpRight :size="21"
-                    /></Link>
+                    <div class="gift-actions">
+                        <Link href="/products/the-big-gesture" class="button primary"
+                            >Meet The Big Gesture <ArrowUpRight :size="21"
+                        /></Link>
+                        <MascotArtwork pose="gift" sizes="(max-width: 600px) 110px, 160px" />
+                    </div>
                 </div>
                 <div class="gift-art">
                     <span class="gift-doodle" aria-hidden="true">WITH<br />LOVE,<br />WURST.</span
@@ -156,17 +160,17 @@ const faqs = [
                         name="The Big Gesture"
                         sizes="(max-width: 600px) 100vw, 50vw"
                     />
-                    <p class="photo-caption">AI-generated box preview</p>
                 </div>
             </div>
         </section>
         <section class="section container faq-section">
-            <div>
+            <div class="faq-intro">
                 <p class="eyebrow">A FEW BURNING QUESTIONS.</p>
                 <h2>The need<br />to know.</h2>
                 <Link href="/how-it-works" class="text-link"
                     >Get the full lowdown <ArrowUpRight :size="20"
                 /></Link>
+                <MascotArtwork pose="curious" sizes="(max-width: 600px) 120px, 180px" />
             </div>
             <div class="faq-list">
                 <details v-for="[question, answer] in faqs" :key="question">
@@ -180,11 +184,13 @@ const faqs = [
                 <div>
                     <p class="eyebrow">THE GRILL IS WARMING UP.</p>
                     <h2>First in line.<br />First to the wurst.</h2>
-                    <p>
-                        We’re getting our ducks (well, sausages) in a row.<br />Leave your details for Sydney
-                        launch news.
-                    </p>
-                    <span class="launch-star" aria-hidden="true">✳</span>
+                    <div class="launch-copy-footer">
+                        <p>
+                            We’re getting our ducks (well, sausages) in a row. Leave your details for Sydney
+                            launch news.
+                        </p>
+                        <MascotArtwork pose="announce" sizes="(max-width: 600px) 120px, 160px" />
+                    </div>
                 </div>
                 <WaitlistForm />
             </div>

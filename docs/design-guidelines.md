@@ -106,7 +106,24 @@ Keep original PNG artwork and web-friendly optimised copies. Preserve alpha when
 
 Shopping surfaces use realistic open-box photography showing sealed sausage packs inside. The hero, subscription and gift listings, product galleries and cart use the matching photograph for each offer. Keep the original cartoon packaging in the brand archive; new carton photography carries the playful wordmark and printed mascot.
 
-The homepage hero pairs that photograph with the Happy Link mascot leaning across its lower-left frame edge. Keep the mascot separate from the product photo, with its glove overlapping the frame and its face, wave and shoes fully visible. Reserve space to the left and below the photo so the character stays clear of the headline, actions, box contents and preview caption at every screen size. Use the same composition on mobile. The decorative character uses empty alt text and cannot intercept clicks. The current cream-matte artwork is clipped to its contour in CSS; keep that contour paired with `wiener-mascot-leaning.webp` when resizing or replacing the asset.
+The homepage hero pairs that photograph with the Happy Link mascot leaning across its lower-left frame edge. Keep the mascot separate from the product photo, with its glove overlapping the frame and its face, wave and shoes fully visible. Reserve space to the left and below the photo so the character stays clear of the headline, actions, box contents and preview caption at every screen size. Use the same composition on mobile. The decorative character uses empty alt text and cannot intercept clicks. The current artwork uses the precise SVG display mask `public/images/wiener-mascot-outline.svg`, including the open spaces inside the arm and legs. Keep it paired with `wiener-mascot-leaning.webp`; use matching image and mask proportions and avoid polygon cutouts or cream borders around the character.
+
+### Homepage section poses
+
+Use a distinct supporting pose in each section below the hero. Keep the hero treatment separate and more prominent. These companions use the same orange body, cream gloves, red shoes, expressive eyes and heavy black outline; small props explain the section without introducing more product claims.
+
+| Section | Pose | Placement |
+| --- | --- | --- |
+| Sausage showcase | `grill`: chef's hat, tongs and thumbs-up | Small accent at the photo's lower-right edge, clear of the caption |
+| Pick your box | `choose`: welcoming hand and downward point | Beside the section heading, pointing toward the range |
+| How it works | `deliver`: walking with a parcel | Beside the heading above the three steps |
+| Gifting | `gift`: holding a wrapped present | Alongside the gift action |
+| FAQs | `curious`: finger on chin | Beside the introduction, clear of the disclosure controls |
+| Launch signup | `announce`: waving with a megaphone | Beside the introductory copy, outside the form |
+
+Render these through `MascotArtwork.vue` and the `mascotArtwork.ts` asset mapping. Use the paired SVG mask for each pose, including transparent arm and leg openings; do not reuse another pose's mask or apply blend modes. Keep the complete silhouette visible, use intrinsic dimensions and responsive WebP sources, and lazy-load the images. Decorative images have empty alt text and no pointer interactions. Allow the layout to stack on narrow screens instead of covering copy, buttons or form fields.
+
+Original artwork lives in `brand/mascots`; 360 and 720 px WebP copies and vector display masks live in `public/images/mascots`. Exact built-in generation prompts and source references are recorded in `brand/image-prompts.md`.
 
 ### Food photography
 
@@ -114,7 +131,7 @@ Pair the mascot and branded packaging with appetising, photorealistic food image
 
 Individual sausage listings use square food images consistently across cards, detail pages and cart thumbnails. Subscription and gift cards use their own open-box photograph. Box galleries combine that view with sausage and serving inspiration; individual sausage galleries have plated and close-up views. Preserve the open box, visible contents and food when cropping, use intrinsic dimensions and responsive WebP sizes, and load below-the-fold images lazily. Do not apply the mascot's rotation or blend mode to photography.
 
-The current food and box images are AI-generated previews, not photographs of supplier stock. Use a box-preview caption for open cartons and a serving-suggestion caption for plated food. Label this beside food imagery, keep confirmed contents separate, and do not imply that garnishes, sides, quantities or packaging shown are included. Before opening sales, replace these concepts with approved photos of the actual products. The reusable asset mapping is `resources/js/foodPhotography.ts`; original PNGs and generation prompts are retained under `brand/photography` and `brand/image-prompts.md`.
+The current food and box images are preview concepts. Keep confirmed contents separate, and do not imply that garnishes, sides, quantities or packaging shown are included. Before opening sales, replace these concepts with approved photos of the actual products. The reusable asset mapping is `resources/js/foodPhotography.ts`; original PNGs and generation prompts are retained under `brand/photography` and `brand/image-prompts.md`.
 
 Use German Butchery's actual product photos and descriptions as the sausage reference. Our Classic Wieners correspond to its [Continental Frankfurter](https://www.german-butchery.com.au/products/sausages/frankfurterpork); Bratwurst references [German Bratwurst](https://www.german-butchery.com.au/products/sausages/thueringerbratwurst); Cheese Kransky references its [Cheese Kransky](https://www.german-butchery.com.au/products/sausages/kranskycheese). Preserve the lighter frankfurter casing, slender pale bratwurst and natural smoked kransky texture visible in those images. Keep our own tabletop, props, composition and brand palette. Supplier screenshots are reference inputs only; do not publish the website UI, awards or logos as our artwork. Gallery views of individual sausages link to their specific product reference.
 

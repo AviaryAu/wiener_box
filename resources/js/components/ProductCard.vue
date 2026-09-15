@@ -40,9 +40,6 @@ defineProps<{ product: Product }>();
             </div>
             <span class="round-arrow"><ArrowUpRight :size="23" /></span>
         </Link>
-        <p v-if="productPhoto(product.slug)" class="photo-caption">
-            {{ product.category === 'pack' ? 'AI-generated serving suggestion' : 'AI-generated box preview' }}
-        </p>
         <div class="product-info">
             <p class="eyebrow">{{ product.eyebrow }}</p>
             <div class="product-title-row">
