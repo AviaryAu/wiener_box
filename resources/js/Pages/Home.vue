@@ -72,7 +72,7 @@ const faqs = [
                         /images/wiener-mascot-leaning-360.webp 360w,
                         /images/wiener-mascot-leaning.webp     720w
                     "
-                    sizes="(max-width: 600px) 45vw, 25vw"
+                    sizes="(max-width: 600px) 80vw, 50vw"
                     width="720"
                     height="913"
                     alt=""

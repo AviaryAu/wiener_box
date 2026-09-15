@@ -368,6 +368,9 @@ b {
 .hero-art {
     position: relative;
     align-self: center;
+    display: grid;
+    align-items: center;
+    aspect-ratio: 1;
     padding: 12px 0 32px 22%;
     isolation: isolate;
 }
@@ -383,10 +386,10 @@ b {
 .hero-art > .hero-mascot {
     position: absolute;
     z-index: 2;
-    width: 44%;
+    width: 88%;
     max-width: none;
     height: auto;
-    left: -8%;
+    left: -28%;
     bottom: -3%;
     pointer-events: none;
     user-select: none;
@@ -414,12 +417,12 @@ b {
         53% 66%,
         52% 72%,
         50% 75%,
-        56% 80%,
-        64% 81%,
-        68% 86%,
-        68% 89%,
-        73% 91%,
-        73% 96%,
+        54% 81%,
+        64% 83%,
+        66% 87%,
+        66% 90%,
+        71% 91%,
+        71% 95%,
         10% 96%,
         11% 74%,
         20% 68%,
@@ -444,8 +447,7 @@ b {
         39% 30%,
         45% 34%,
         47% 27%,
-        49% 20%,
-        54% 14%
+        49% 20%
     );
 }
 .hero-sticker {
@@ -590,6 +592,7 @@ b {
 }
 .hero-art .hero-caption {
     display: block;
+    z-index: 3;
     bottom: 18px;
     right: 12px;
     padding: 5px 8px;
@@ -2111,10 +2114,13 @@ summary::-webkit-details-marker {
         width: 100%;
         max-width: 410px;
         margin: 0 auto;
+        aspect-ratio: 0.72;
+        align-items: start;
     }
     .hero-art > .hero-mascot {
         left: -3%;
-        width: 40%;
+        width: 80%;
+        bottom: 7%;
     }
     .hero-sticker {
         top: 0;
