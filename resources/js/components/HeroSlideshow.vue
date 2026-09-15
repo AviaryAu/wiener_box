@@ -330,7 +330,6 @@ onBeforeUnmount(() => {
 .hero-club-art img {
     width: 100%;
     border-radius: var(--radius-panel);
-    border: 1.5px solid var(--color-ink);
 }
 .hero-club-caption {
     margin-top: 13px;
