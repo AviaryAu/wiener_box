@@ -125,7 +125,7 @@ test('every product has working gallery images and the viewer supports keyboard 
     const opener = page.locator('.gallery-image-button');
     const originalOverflow = await page.evaluate(() => document.body.style.overflow);
     await opener.click();
-    const dialog = page.getByRole('dialog', { name: 'The Regular photo viewer' });
+    const dialog = page.getByRole('dialog', { name: 'The Big Wiener Club photo viewer' });
     await expect(dialog).toBeVisible();
     await expect(dialog.getByRole('button', { name: 'Close photo viewer' })).toBeFocused();
     await page.keyboard.press('Shift+Tab');
@@ -144,7 +144,7 @@ test('every product has working gallery images and the viewer supports keyboard 
     expect(await page.evaluate(() => document.body.style.overflow)).toBe(originalOverflow);
 
     await page.goto('/shop');
-    await page.getByRole('link', { name: 'Explore The Regular', exact: true }).click();
+    await page.getByRole('link', { name: 'Explore The Big Wiener Club', exact: true }).click();
     await page.locator('.gallery-image-button').click();
     await page.goBack();
     await expect(page).toHaveURL(/\/shop$/);

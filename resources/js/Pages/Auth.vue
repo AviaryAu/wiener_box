@@ -56,7 +56,7 @@ function submit() {
                           : 'Your boxes, your details, your good times. All in one place.'
                 }}
             </p>
-            <ProductImage slug="the-regular" name="The Regular" sizes="270px" decorative />
+            <ProductImage slug="the-regular" name="The Big Wiener Club" sizes="270px" decorative />
         </div>
         <div class="auth-card">
             <LockKeyhole :size="24" />

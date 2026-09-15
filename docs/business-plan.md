@@ -101,16 +101,20 @@ Suggested pilot gates: at least A$25 contribution on the core subscription after
 
 | Offer | Proposed price before delivery | Contents concept | Purpose |
 |---|---:|---|---|
-| **The Regular Wiener Box** | A$79 per calendar month | A fixed mix of sealed sausage packs, recipe card, playful sleeve | Main recurring offer |
-| **The One-Night Stand** | A$85 one-off | Same core selection without renewal | Low-commitment trial; model separately before launch |
-| **The Gift That Sizzles** | A$99 one-off | Sausage selection, pantry accompaniment, message card, gift sleeve | Gifting and referral |
-| **Pick Your Links** | Pack prices to be costed | Individual sealed sausage packs | Repeat favourites and basket additions |
+| **The Big Wiener Club** | A$59 per calendar month | A fixed mix of sealed sausage packs, recipe card, playful sleeve | Main recurring offer |
+| **The Wurst Fling** | A$65 one-off | Same core selection without renewal | Low-commitment trial; model separately before launch |
+| **Nice Package** | A$79 one-off | A larger sausage selection, message card, gift presentation | Gifting and referral |
+| **Pick Your Links** | Wieners A$8.50; bratwurst A$8.90; cheese kransky A$9.90 | Individual sealed sausage packs; final sizes pending | Repeat favourites and basket additions |
 
-A$12 local delivery is a modelling assumption. Display the full delivered price after postcode selection and before payment. The workbook models subscription, gift and a A$65 average individual basket. The A$85 trial variant is proposed merchandising and has not been separately forecast.
+A$12 local delivery is a modelling assumption. At that estimate, the delivered box prices are A$71 monthly, A$77 one-off and A$91 for gifting. Display the full delivered price after postcode selection and before payment. The workbook still models the original A$79 subscription, A$99 gift and A$65 average individual basket; it has not been reforecast for these revised storefront prices. The one-off variant has not been separately forecast.
 
-The core box might contain two frankfurter packs, two bratwurst packs, one cheese kransky pack and one Nürnberger pack. The quoted wholesale bill of materials must determine whether this is good value at A$79. Do not advertise a final weight, serving count or product saving until supplier pack data supports it.
+The core box might contain two frankfurter packs, two bratwurst packs, one cheese kransky pack and one Nürnberger pack. The quoted wholesale bill of materials must determine whether this is viable at A$59. Do not advertise a final weight, serving count or product saving until supplier pack data supports it.
 
-**Value test:** the illustrative six-pack mix totals A$49.20 at the listed direct retail pack prices, versus our proposed A$79 product price. That A$29.80 premium before delivery is substantial and must be tested. Compare exact contents and ask customers to pay the intended delivered price. If the premium is too high, increase genuine food value, reduce handling cost, adjust price or stop the offer. A funny carton cannot repair poor value. [Retail comparison](https://www.german-butchery.com.au/shop/)
+**Market pricing revision, 15 September 2026:** German Butchery lists frankfurter and Nürnberger retail packs at A$7.90, and bratwurst and cheese kransky retail packs at A$8.50. The illustrative six-pack mix totals A$49.20. The revised A$59 subscription carries a A$9.80 curation and packaging premium before delivery, while A$65 gives the same core one-off offer a A$6 subscription incentive. A$79 is the proposed position for the larger gift selection and presentation. These are merchandising decisions informed by retail comparisons, not validated wholesale margins or promised final contents. Individual pack prices remain close to this direct-supplier benchmark. [German Butchery retail catalogue](https://www.german-butchery.com.au/shop/)
+
+As a wider market check, The Wursthütte lists a 2 kg mixed sausage BBQ box at A$42.85 and a 400 g German pork sausage pack at A$12.30; Super Butcher lists a 400 g Götzinger bratwurst pack at A$12.99. These are different products and quantities, not like-for-like savings claims. Validate Wiener Box against the final pack counts, weights, delivered cost and gift contents before launch. [The Wursthütte](https://www.wursthutte.com.au/online-shop/sausages/), [Super Butcher](https://superbutcher.com.au/products/gotzinger-german-bratwurst-400g)
+
+The storefront defaults are held in `PreviewPricingSeeder::PRICES`. New preview catalogues use them automatically. For an existing local preview, run `php artisan db:seed --class=PreviewPricingSeeder --no-interaction` to update only the six preview variants' base AUD retail prices. This preserves product content, other currencies, bulk tiers and customer-group prices, and is restricted to local/testing environments.
 
 ### Merchandising rules
 
@@ -165,7 +169,7 @@ A recall workflow must identify affected customers, stop sale, hold stock, recor
 
 ## 6. Economics and funding
 
-The companion workbook is editable. Its assumptions are neither supplier quotes nor evidence of willingness to pay. All figures below are rounded outputs from its initial inputs.
+The companion workbook is editable. Its assumptions are neither supplier quotes nor evidence of willingness to pay. All figures below are historical outputs from its initial A$79 subscription and A$99 gift inputs, not the revised A$59/A$79 storefront prices. The lower prices reduce contribution materially at the same costs; this forecast must be rebuilt with confirmed supply and fulfilment costs before making a launch or funding decision.
 
 ### Contribution per delivered order
 
@@ -318,7 +322,7 @@ If recurring-order integration is not ready, cap the first paid pilot at one-off
 
 1. Obtain the supplier's wholesale pack and cost data using the prepared enquiry.
 2. Request two chilled fulfilment quotes for the same pilot postcodes and box dimensions.
-3. Validate the proposed A$91 delivered subscription price with target customers.
+3. Validate the revised A$71 delivered subscription price and exact contents with target customers.
 4. Replace cost assumptions and resolve the funding shortfall before committing launch spend.
 5. Run the commerce compatibility spike described in the blueprint, then implement the storefront and admin in milestones.
 

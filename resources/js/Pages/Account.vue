@@ -46,7 +46,7 @@ defineProps<{ orders: { reference: string; status: string; total: number; placed
                     charge your card.
                 </p>
                 <Link href="/products/the-regular" class="text-link"
-                    >Meet The Regular <ArrowUpRight :size="19"
+                    >Meet The Big Wiener Club <ArrowUpRight :size="19"
                 /></Link>
             </section>
         </div>

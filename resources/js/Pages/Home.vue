@@ -59,7 +59,7 @@ const faqs = [
                     </div>
                     <ProductImage
                         slug="the-regular"
-                        name="The Regular"
+                        name="The Big Wiener Club"
                         sizes="(max-width: 600px) 100vw, 50vw"
                         loading="eager"
                         fetchpriority="high"
@@ -169,7 +169,7 @@ const faqs = [
                     </p>
                     <div class="gift-actions">
                         <Link href="/products/the-big-gesture" class="button primary"
-                            >Meet The Big Gesture <ArrowUpRight :size="21"
+                            >Meet Nice Package <ArrowUpRight :size="21"
                         /></Link>
                         <MascotArtwork pose="gift" sizes="(max-width: 600px) 110px, 160px" />
                     </div>
@@ -178,7 +178,7 @@ const faqs = [
                     <span class="gift-doodle" aria-hidden="true">WITH<br />LOVE,<br />WURST.</span
                     ><ProductImage
                         slug="the-big-gesture"
-                        name="The Big Gesture"
+                        name="Nice Package"
                         sizes="(max-width: 600px) 100vw, 50vw"
                     />
                 </div>

@@ -5,15 +5,24 @@ namespace Tests\Feature;
 use App\Models\ProductListing;
 use App\Models\User;
 use App\Models\WaitlistEntry;
+use Database\Seeders\PreviewBoxBrandingSeeder;
+use Database\Seeders\PreviewPricingSeeder;
 use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Notification;
 use Inertia\Testing\AssertableInertia as Assert;
 use Lunar\Admin\Models\Staff;
+use Lunar\Base\CartSessionInterface;
 use Lunar\Facades\CartSession;
+use Lunar\FieldTypes\TranslatedText;
 use Lunar\Models\Cart;
+use Lunar\Models\Currency;
+use Lunar\Models\CustomerGroup;
+use Lunar\Models\Price;
+use RuntimeException;
 use Tests\TestCase;
 
 class CommerceTest extends TestCase
@@ -30,7 +39,10 @@ class CommerceTest extends TestCase
     public function test_catalogue_uses_lunar_prices_and_hides_unpublished_products(): void
     {
         $listing = ProductListing::where('slug', 'the-regular')->firstOrFail();
-        $this->get('/')->assertOk()->assertInertia(fn (Assert $page) => $page->component('Home')->has('products', 3)->where('products.0.price', 7900));
+        $this->get('/')->assertOk()->assertInertia(fn (Assert $page) => $page->component('Home')->has('products', 3)
+            ->where('products.0.name', 'The Big Wiener Club')->where('products.0.price', 5900)
+            ->where('products.1.name', 'The Wurst Fling')->where('products.1.price', 6500)
+            ->where('products.2.name', 'Nice Package')->where('products.2.price', 7900));
         $listing->product->variants->first()->prices->first()->update(['price' => 8100]);
         $this->get('/products/the-regular')->assertInertia(fn (Assert $page) => $page->where('product.price', 8100));
         $listing->update(['published' => false]);
@@ -42,14 +54,116 @@ class CommerceTest extends TestCase
     {
         $listing = ProductListing::where('slug', 'the-regular')->firstOrFail();
         $this->post('/cart', ['product_id' => $listing->id, 'quantity' => 2, 'price' => 1])->assertRedirect()->assertSessionHasNoErrors();
-        $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.subtotal', 15800)->where('cart.quantity', 2));
+        $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.subtotal', 11800)->where('cart.quantity', 2));
         $line = Cart::firstOrFail()->lines->first();
         $this->patch('/cart/'.$line->id, ['quantity' => 3])->assertRedirect();
-        $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.subtotal', 23700));
+        $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.subtotal', 17700));
         $this->post('/cart', ['product_id' => $listing->id, 'quantity' => 12])->assertSessionHasErrors('quantity');
         $this->patch('/cart/'.$line->id, ['quantity' => 0])->assertSessionHasErrors('quantity');
         $this->delete('/cart/'.$line->id)->assertRedirect();
         $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.quantity', 0));
+    }
+
+    public function test_preview_pricing_refresh_updates_existing_catalogue_and_cart_without_changing_other_price_tiers(): void
+    {
+        $listing = ProductListing::where('slug', 'the-regular')->firstOrFail();
+        $listing->update(['story' => 'Owner-edited product story']);
+        $variant = $listing->product->variants->first();
+        $price = $variant->prices->first();
+        $price->update(['price' => 7900]);
+        $bulkPrice = Price::factory()->for($variant, 'priceable')->create([
+            'currency_id' => $price->currency_id, 'min_quantity' => 6, 'price' => 5500,
+        ]);
+        $groupPrice = Price::factory()->for($variant, 'priceable')->create([
+            'currency_id' => $price->currency_id, 'min_quantity' => 1, 'price' => 5400,
+            'customer_group_id' => CustomerGroup::factory()->create()->id,
+        ]);
+        $foreignPrice = Price::factory()->for($variant, 'priceable')->create([
+            'currency_id' => Currency::factory()->create(['code' => 'USD', 'default' => false])->id,
+            'min_quantity' => 1, 'price' => 4500,
+        ]);
+        $priceCount = Price::count();
+        $this->post('/cart', ['product_id' => $listing->id, 'quantity' => 2]);
+
+        $this->seed(PreviewPricingSeeder::class);
+        $this->seed(PreviewPricingSeeder::class);
+
+        $this->assertSame(5900, $price->fresh()->price->value);
+        $this->assertSame(5500, $bulkPrice->fresh()->price->value);
+        $this->assertSame(5400, $groupPrice->fresh()->price->value);
+        $this->assertSame(4500, $foreignPrice->fresh()->price->value);
+        $this->assertSame($priceCount, Price::count());
+        $this->assertSame('Owner-edited product story', $listing->fresh()->story);
+        $this->app->forgetInstance(CartSessionInterface::class);
+        CartSession::clearResolvedInstance(CartSessionInterface::class);
+        $this->get('/products/the-regular')->assertInertia(fn (Assert $page) => $page->where('product.price', 5900));
+        $this->get('/cart')->assertInertia(fn (Assert $page) => $page->where('cart.subtotal', 11800)->where('cart.lines.0.unitPrice', 5900));
+    }
+
+    public function test_preview_pricing_refresh_rolls_back_when_a_preview_variant_is_missing(): void
+    {
+        $price = ProductListing::where('slug', 'the-regular')->firstOrFail()->product->variants->first()->prices->first();
+        $price->update(['price' => 7900]);
+        ProductListing::where('slug', 'cheese-kransky')->firstOrFail()->product->variants->first()->update(['sku' => 'OWNER-CHEESE-KRANSKY']);
+
+        $this->assertThrows(fn () => $this->seed(PreviewPricingSeeder::class), ModelNotFoundException::class);
+
+        $this->assertSame(7900, $price->fresh()->price->value);
+    }
+
+    public function test_preview_pricing_refresh_rejects_production_without_changing_prices(): void
+    {
+        $price = ProductListing::where('slug', 'the-regular')->firstOrFail()->product->variants->first()->prices->first();
+        $price->update(['price' => 7900]);
+        $this->app->instance('env', 'production');
+
+        $this->assertThrows(fn () => app(PreviewPricingSeeder::class)->run(), RuntimeException::class);
+
+        $this->assertSame(7900, $price->fresh()->price->value);
+    }
+
+    public function test_box_branding_refresh_updates_names_and_taglines_without_replacing_product_data(): void
+    {
+        $listing = ProductListing::where('slug', 'the-regular')->firstOrFail();
+        $listing->update(['eyebrow' => 'Old tagline', 'story' => 'Owner-edited product story']);
+        $product = $listing->product;
+        $attributes = $product->attribute_data;
+        $attributes->put('name', new TranslatedText(['en' => 'The Regular', 'de' => 'Deutscher Club']));
+        $product->update(['attribute_data' => $attributes]);
+        $description = $product->translateAttribute('description');
+        $price = $product->variants->first()->prices->first();
+        $price->update(['price' => 6100]);
+        $this->post('/cart', ['product_id' => $listing->id, 'quantity' => 1]);
+
+        $this->seed(PreviewBoxBrandingSeeder::class);
+        $this->seed(PreviewBoxBrandingSeeder::class);
+
+        $this->assertSame('Owner-edited product story', $listing->fresh()->story);
+        $this->assertSame($description, $product->fresh()->translateAttribute('description'));
+        $this->assertSame('Deutscher Club', $product->fresh()->translateAttribute('name', 'de'));
+        $this->assertSame(6100, $price->fresh()->price->value);
+        $this->assertDatabaseCount('product_listings', 6);
+        $this->app->forgetInstance(CartSessionInterface::class);
+        CartSession::clearResolvedInstance(CartSessionInterface::class);
+        $this->get('/products/the-regular')->assertInertia(fn (Assert $page) => $page
+            ->where('product.id', $listing->id)->where('product.name', 'The Big Wiener Club')
+            ->where('product.eyebrow', 'Membership has its perks. Mostly sausages.'));
+        $this->get('/cart')->assertInertia(fn (Assert $page) => $page
+            ->where('cart.lines.0.name', 'The Big Wiener Club')->where('cart.subtotal', 6100));
+        $this->get('/products/the-fling')->assertInertia(fn (Assert $page) => $page
+            ->where('product.name', 'The Wurst Fling')->where('product.eyebrow', 'Big flavour. No strings attached.'));
+        $this->get('/products/the-big-gesture')->assertInertia(fn (Assert $page) => $page
+            ->where('product.name', 'Nice Package')->where('product.eyebrow', 'Say it with sausages.'));
+    }
+
+    public function test_box_branding_refresh_rejects_production_without_changing_the_name(): void
+    {
+        $product = ProductListing::where('slug', 'the-regular')->firstOrFail()->product;
+        $this->app->instance('env', 'production');
+
+        $this->assertThrows(fn () => app(PreviewBoxBrandingSeeder::class)->run(), RuntimeException::class);
+
+        $this->assertSame('The Big Wiener Club', $product->fresh()->translateAttribute('name'));
     }
 
     public function test_another_session_cannot_change_cart_lines(): void

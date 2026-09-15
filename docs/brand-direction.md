@@ -52,16 +52,17 @@ Aim for playful hospitality with occasional sausage puns. Use concrete food lang
 |---|---|
 | Homepage headline | “Good times come in links.” |
 | Homepage subheading | “A box of German-style favourites for your next BBQ. Choose monthly, send a gift, or pick your own packs.” |
-| Subscription heading | “Make it a regular thing.” |
-| Gift heading | “The gift that sizzles.” |
+| Subscription heading | “The Big Wiener Club” — “Membership has its perks. Mostly sausages.” |
+| One-off heading | “The Wurst Fling” — “Big flavour. No strings attached.” |
+| Gift heading | “Nice Package” — “Say it with sausages.” |
 | Shop individual packs | “Pick your links.” |
 | Cart addition | “A little mustard goes a long way.” |
 | Unsupported postcode | “We’re not delivering to your postcode yet. Join the local launch list.” |
-| Renewal notice | “Your next box is A$91 including delivery. We’ll charge you on [date]. Make changes by [date and time].” |
+| Renewal notice | “Your next box is A$71 including delivery. We’ll charge you on [date]. Make changes by [date and time].” |
 | Cancellation | “Your subscription is cancelled. You won’t be charged for future boxes. [Explain any existing paid order separately.]” |
 | Food concern | “Please do not eat the affected product. Contact us with your order details so we can help.” |
 
-“The One-Night Stand” is a cheekier trial-box name to test against the more neutral “The One-Off Box.” Keep the public brand suitable for mixed audiences and gifts. Avoid sexualised product visuals, national caricatures and humour that undermines food quality.
+The approved box names are The Big Wiener Club (monthly), The Wurst Fling (one-off) and Nice Package (gift). Keep the spelling “Wiener” consistent with Wiener Box. Keep the public brand suitable for mixed audiences and gifts. Avoid sexualised product visuals, national caricatures and humour that undermines food quality.
 
 ## Storefront composition
 

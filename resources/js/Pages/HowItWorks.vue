@@ -18,8 +18,9 @@ import { ArrowUpRight, PackageCheck, Truck, Utensils } from '@lucide/vue';
                 <PackageCheck :size="36" />
                 <h2>1. Find your box.</h2>
                 <p>
-                    The Regular is our proposed monthly discovery box. The Fling is a one-off. The Big Gesture
-                    is for someone you like a lot. You can also build your own selection of packs.
+                    The Big Wiener Club is our proposed monthly discovery box. The Wurst Fling is a one-off.
+                    Nice Package is for someone you like a lot. You can also build your own selection of
+                    packs.
                 </p>
             </article>
             <article>
