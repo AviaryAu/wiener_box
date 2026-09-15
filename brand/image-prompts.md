@@ -374,3 +374,65 @@ Background: perfectly flat solid warm cream #FFF5DD, no gradient, paper texture,
 No letters, words, numerals, labels, logos or watermarks anywhere. Website captions will be added separately. Keep props simple and readable at 230px wide. No additional characters.
 Scene: The sausage mascot is a proudly overqualified backyard barbecue chef. It stands next to a small waist-high bright red round kettle barbecue on simple black legs, holding oversized barbecue tongs in one cream glove like a jaunty spy gadget pointed safely upwards, and resting its other gloved hand on its hip. Wear a puffy cream chef hat and a little mustard-yellow apron. Give it the recognizable delighted mischievous grin and original expressive eyes, no sunglasses. Two little sausage links and one simple curling black smoke line over the grill. A playful LICENCE TO GRILL scene. Keep the chef and red barbecue touching/overlapping slightly as a compact vignette.
 ```
+
+## Box-to-BBQ object illustrations — 15 September 2026
+
+Mode: built-in `image_gen`, one generation per object. Style reference: `brand/mascots/step-grill.png`, used only for its drawing treatment. These three object-only images replace the earlier column mascots. The delivery mascot beside the heading stays in place. No characters, faces or visible sausages appear in these columns.
+
+Design research: [CHILL transport information](https://faq.chill.com.au/en/knowledge/transport-faqs-1) lists vans and trucks for deliveries; its [temperature-controlled transport overview](https://chill.com.au/wp-content/uploads/2021/09/How-can-we-help-you-rev-3.pdf) identifies refrigerated van/truck services. A compact refrigerated vehicle is our design choice for the planned local chilled-delivery step, not a claim about a contracted courier or vehicle. [Weber's Compact Kettle range](https://anz.weber.com/en-au/collections/compact-kettle) informed the recognisable round bowl, domed lid and wheeled stand for the barbecue illustration. The open insulated carton follows the existing box-and-chilled-delivery concept. No third-party logos or product branding were reproduced.
+
+Original PNGs are 1254 × 1254. Website derivatives are 360 and 720 px WebP, quality 90. Original raster files are preserved; native SVG display masks remove the cream backdrop and preserve negative spaces. Assets reuse `MascotArtwork.vue` and `mascotArtwork.ts` as the shared illustration renderer. Earlier character scenes remain archived on disk.
+
+### Pick a box: step-box
+
+Original: `brand/mascots/step-box.png`. Web: `public/images/mascots/step-box-360.webp`, `public/images/mascots/step-box-720.webp`. Mask: `public/images/mascots/step-box-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-06988403-7322-4fa6-94df-e96a55e3a82e.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: an original isolated object illustration for a Wiener Box website how-it-works column.
+Input image 1 is a drawing STYLE reference only: match its thick slightly irregular black ink contours, playful rounded vintage cartoon forms, flat mustard yellow, vivid red, warm cream and near-black palette, restrained worn screen-print texture, bold simple highlights. Do NOT draw the sausage mascot or any character from the reference.
+Make a single attractive OBJECT, not a character: absolutely no eyes, face, mouth, arms, gloves, human legs, shoes, people, animals, sausage characters or anthropomorphism. No visible sausages. No letters, logos, numbers, captions or watermark. Avoid realistic rendering, 3D or generic thin-line vector icon styling.
+Square 1024x1024 canvas. Center the complete object with a generous approximately 10% empty margin around it. Full object entirely inside the canvas, recognizable at 240px wide. A small black ground shadow and a couple of simple black accent strokes are fine.
+Background: perfectly flat uniform cream #FFF5DD, no gradient, no scene, no texture outside the object, no checkerboard or white border. Every object part has a solid closed black outer contour.
+Subject: A cheerful chunky mustard-yellow insulated cardboard delivery carton in three-quarter view, with its top open and four folded flaps. Broad red packing-tape stripe across the front and side panels, cream protective liner visible inside. One plain cream rectangular gel ice pack peeks out of the liner, with a small simple black six-armed snowflake printed on it; no text. Otherwise minimal contents, no food visible. Slightly squashy hand-drawn proportions and bold black fold lines make this feel like a prop from a vintage cartoon. Two tiny mustard sparkle accents beside the carton. The carton is the star, filling about 75% of the canvas width and 75% height.
+```
+
+### Chilled delivery: step-truck
+
+Original: `brand/mascots/step-truck.png`. Web: `public/images/mascots/step-truck-360.webp`, `public/images/mascots/step-truck-720.webp`. Mask: `public/images/mascots/step-truck-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-521c57c9-8427-4d4e-b911-ef9892dc8d8f.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: an original isolated object illustration for a Wiener Box website how-it-works column.
+Input image 1 is a drawing STYLE reference only: match its thick slightly irregular black ink contours, playful rounded vintage cartoon forms, flat mustard yellow, vivid red, warm cream and near-black palette, restrained worn screen-print texture, bold simple highlights. Do NOT draw the sausage mascot or any character from the reference.
+Make a single attractive OBJECT, not a character: absolutely no eyes, face, mouth, arms, gloves, human legs, shoes, people, animals, sausage characters or anthropomorphism. No visible sausages. No letters, logos, numbers, captions or watermark. Avoid realistic rendering, 3D or generic thin-line vector icon styling.
+Square 1024x1024 canvas. Center the complete object with a generous approximately 10% empty margin around it. Full object entirely inside the canvas, recognizable at 240px wide. A small black ground shadow and a couple of simple black accent strokes are fine.
+Background: perfectly flat uniform cream #FFF5DD, no gradient, no scene, no texture outside the object, no checkerboard or white border. Every object part has a solid closed black outer contour.
+Subject: A small friendly-looking but NON-anthropomorphic refrigerated local delivery van / compact box truck in three-quarter view, facing right. Mustard-yellow square insulated cargo body with rounded corners, a broad red horizontal stripe, a simple black six-armed snowflake symbol on the side, cream front cab, red wheel hubs, chunky black tyres, cream windows. A small cream refrigeration unit sits above the cab. No driver or passengers, no face-like grille or eyes. Exaggerated curved fenders and a slightly jaunty forward stance, two short black motion streaks behind it. Entire vehicle including both visible wheels fits the canvas, at about 85% width and 65% height. This is an original generic cartoon delivery vehicle, not any real vehicle or courier brand.
+```
+
+### Make a meal of it: step-bbq
+
+Original: `brand/mascots/step-bbq.png`. Web: `public/images/mascots/step-bbq-360.webp`, `public/images/mascots/step-bbq-720.webp`. Mask: `public/images/mascots/step-bbq-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-03331eb4-44fd-463e-8d62-c72f19486857.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: an original isolated object illustration for a Wiener Box website how-it-works column.
+Input image 1 is a drawing STYLE reference only: match its thick slightly irregular black ink contours, playful rounded vintage cartoon forms, flat mustard yellow, vivid red, warm cream and near-black palette, restrained worn screen-print texture, bold simple highlights. Do NOT draw the sausage mascot or any character from the reference.
+Make a single attractive OBJECT, not a character: absolutely no eyes, face, mouth, arms, gloves, human legs, shoes, people, animals, sausage characters or anthropomorphism. No visible sausages. No letters, logos, numbers, captions or watermark. Avoid realistic rendering, 3D or generic thin-line vector icon styling.
+Square 1024x1024 canvas. Center the complete object with a generous approximately 10% empty margin around it. Full object entirely inside the canvas, recognizable at 240px wide. A small black ground shadow and a couple of simple black accent strokes are fine.
+Background: perfectly flat uniform cream #FFF5DD, no gradient, no scene, no texture outside the object, no checkerboard or white border. Every object part has a solid closed black outer contour.
+Subject: A bold bright-red round kettle charcoal barbecue in three-quarter view, on a sturdy black tripod stand with two small chunky wheels. Its domed red lid is hinged open at the back, showing an empty black-and-cream cooking grate. A pair of simple cream-and-black metal barbecue tongs rests diagonally on the rim. Cream lid handle and small black vent holes, two elegant curling black heat lines above the grill. No food or sausages anywhere. Match the red kettle prop in the reference's drawing style, but make the barbecue the sole subject and redraw it larger with a clearly open lid. Entire barbecue including lid, stand and wheels inside the canvas at about 75% width and 85% height.
+```
