@@ -1,4 +1,25 @@
 export const mascotArtwork = {
+    'step-love': {
+        src: '/images/mascots/step-love-720.webp',
+        srcset: '/images/mascots/step-love-360.webp 360w, /images/mascots/step-love-720.webp 720w',
+        mask: '/images/mascots/step-love-outline.svg',
+        width: 720,
+        height: 720,
+    },
+    'step-roll': {
+        src: '/images/mascots/step-roll-720.webp',
+        srcset: '/images/mascots/step-roll-360.webp 360w, /images/mascots/step-roll-720.webp 720w',
+        mask: '/images/mascots/step-roll-outline.svg',
+        width: 720,
+        height: 720,
+    },
+    'step-grill': {
+        src: '/images/mascots/step-grill-720.webp',
+        srcset: '/images/mascots/step-grill-360.webp 360w, /images/mascots/step-grill-720.webp 720w',
+        mask: '/images/mascots/step-grill-outline.svg',
+        width: 720,
+        height: 720,
+    },
     grill: {
         src: '/images/mascots/grill-720.webp',
         srcset: '/images/mascots/grill-360.webp 360w, /images/mascots/grill-720.webp 720w',

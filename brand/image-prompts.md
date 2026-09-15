@@ -311,3 +311,66 @@ Draw the SAME original cheerful orange sausage mascot in the new pose specified 
 Background: perfectly flat uniform solid warm cream #FFF5DD, including between limbs and around props. No gradient, scene, floor texture, white border, glow, sticker border or checkerboard. Every part of the character and prop should have a clear closed black outer outline. Use a single uncluttered isolated figure, complete feet and all accessories fully within the canvas with roughly 8% breathing room. Near-square or modest portrait framing, centred. No lettering, numbers, slogans, watermarks or extra symbols.
 Style: warm, playful 1930s rubber-hose brand illustration matching the input, not 3D or realistic. Keep the original face proportions and vivid orange, cream, black, red and mustard palette.
 New pose: The excited announcer. A lively grounded stance with one red shoe pointed out, holding a small mustard-yellow and black handheld megaphone up near the side of its open smiling mouth in one gloved hand. The megaphone faces the viewer's right and does not obscure the eyes or face. The other hand is raised in a friendly welcoming wave. No sound lines, lettering, confetti or extra props.
+
+## Box-to-BBQ illustrated steps — 15 September 2026
+
+Mode: built-in `image_gen`, one generation per illustration. Reference: `brand/wiener-mascot-leaning.png` (original character and style). The hero and other section artwork remain unchanged. These square scenes replace the three homepage step icons.
+
+Original outputs are 1254 × 1254 PNG files. The website uses lazy-loaded 360 and 720 px WebP derivatives, quality 90, through `MascotArtwork.vue`. The generated RGB originals remain unchanged; matching native SVG display masks remove the cream backdrop and preserve the full illustrations, small floating details and open spaces between limbs/props. Pun captions and step numbers are live HTML.
+
+### Love at first bite.
+
+Original: `brand/mascots/step-love.png`. Web: `public/images/mascots/step-love-360.webp`, `public/images/mascots/step-love-720.webp`. Display mask: `public/images/mascots/step-love-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-a91d0e66-533a-4135-a652-5ce943d3fff0.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: a single original Wiener Box website how-it-works step illustration.
+Input image 1: strict character identity and illustration-style reference, not a composition to repeat.
+Create a new full-body scene using exactly this cheerful curved orange sausage mascot: tied sausage tips, expressive large cream eyes with black pie-cut pupils, black rubber-hose arms and legs, cream cartoon gloves, oversized bright red shoes. Match the bold thick slightly irregular black ink outlines, vintage animation proportions, simple flat mustard yellow/red/orange/cream palette, restrained worn print texture. Keep the character recognizable.
+Canvas: square 1024 x 1024. Center the full mascot and its props as one compact vignette filling about 85% of the canvas, with clear margin around every edge. All important parts must be inside frame, no crop.
+Background: perfectly flat solid warm cream #FFF5DD, no gradient, paper texture, checkerboard, frame or environment. All colored forms including hands and props have closed solid black outlines. A small black oval ground shadow is okay.
+No letters, words, numerals, labels, logos or watermarks anywhere. Website captions will be added separately. Keep props simple and readable at 230px wide. No additional characters.
+Scene: The sausage mascot has fallen in love with its perfect sausage box. It stands in a charming swooning pose, cradling and hugging a small open mustard-yellow cardboard delivery box against its chest with both cream gloves. Its face smiles delightedly down at the box. Two simple small red hearts float just above the box. Its red shoes touch the ground, one heel kicked up slightly. The open box has simple folded flaps and a few orange wrapped sausage links peeking out. An affectionate visual pun on choosing your perfect box. Keep the full cheerful face visible above the box.
+```
+
+### We’re on a roll.
+
+Original: `brand/mascots/step-roll.png`. Web: `public/images/mascots/step-roll-360.webp`, `public/images/mascots/step-roll-720.webp`. Display mask: `public/images/mascots/step-roll-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-c2d51613-677b-4468-90cc-328d5e2ffe18.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: a single original Wiener Box website how-it-works step illustration.
+Input image 1: strict character identity and illustration-style reference, not a composition to repeat.
+Create a new full-body scene using exactly this cheerful curved orange sausage mascot: tied sausage tips, expressive large cream eyes with black pie-cut pupils, black rubber-hose arms and legs, cream cartoon gloves, oversized bright red shoes. Match the bold thick slightly irregular black ink outlines, vintage animation proportions, simple flat mustard yellow/red/orange/cream palette, restrained worn print texture. Keep the character recognizable.
+Canvas: square 1024 x 1024. Center the full mascot and its props as one compact vignette filling about 85% of the canvas, with clear margin around every edge. All important parts must be inside frame, no crop.
+Background: perfectly flat solid warm cream #FFF5DD, no gradient, paper texture, checkerboard, frame or environment. All colored forms including hands and props have closed solid black outlines. A small black oval ground shadow is okay.
+No letters, words, numerals, labels, logos or watermarks anywhere. Website captions will be added separately. Keep props simple and readable at 230px wide. No additional characters.
+Scene: The sausage mascot is a cheerful speedy delivery skater: wearing four-wheel roller skates built into its signature oversized red shoes, leaning forward in an energetic skating pose, safely holding a small CLOSED mustard-yellow delivery parcel tucked against its body with one cream glove and waving with the other. A neat black tape stripe on the parcel, no text. Add two simple black speed streaks behind the skates. An obvious playful visual pun: this sausage delivery is ON A ROLL. Maintain the original face and body rather than transforming it into a vehicle.
+```
+
+### Licence to grill.
+
+Original: `brand/mascots/step-grill.png`. Web: `public/images/mascots/step-grill-360.webp`, `public/images/mascots/step-grill-720.webp`. Display mask: `public/images/mascots/step-grill-outline.svg`.
+
+Built-in source: `/Users/stompy/.codex/generated_images/01a0a405-33ed-71a3-960f-eb2056dc353a/exec-609e82d9-83bd-4722-bb5d-928ee2d13a3d.png`.
+
+Final prompt:
+
+```text
+Use case: illustration-story.
+Asset type: a single original Wiener Box website how-it-works step illustration.
+Input image 1: strict character identity and illustration-style reference, not a composition to repeat.
+Create a new full-body scene using exactly this cheerful curved orange sausage mascot: tied sausage tips, expressive large cream eyes with black pie-cut pupils, black rubber-hose arms and legs, cream cartoon gloves, oversized bright red shoes. Match the bold thick slightly irregular black ink outlines, vintage animation proportions, simple flat mustard yellow/red/orange/cream palette, restrained worn print texture. Keep the character recognizable.
+Canvas: square 1024 x 1024. Center the full mascot and its props as one compact vignette filling about 85% of the canvas, with clear margin around every edge. All important parts must be inside frame, no crop.
+Background: perfectly flat solid warm cream #FFF5DD, no gradient, paper texture, checkerboard, frame or environment. All colored forms including hands and props have closed solid black outlines. A small black oval ground shadow is okay.
+No letters, words, numerals, labels, logos or watermarks anywhere. Website captions will be added separately. Keep props simple and readable at 230px wide. No additional characters.
+Scene: The sausage mascot is a proudly overqualified backyard barbecue chef. It stands next to a small waist-high bright red round kettle barbecue on simple black legs, holding oversized barbecue tongs in one cream glove like a jaunty spy gadget pointed safely upwards, and resting its other gloved hand on its hip. Wear a puffy cream chef hat and a little mustard-yellow apron. Give it the recognizable delighted mischievous grin and original expressive eyes, no sunglasses. Two little sausage links and one simple curling black smoke line over the grill. A playful LICENCE TO GRILL scene. Keep the chef and red barbecue touching/overlapping slightly as a compact vignette.
+```

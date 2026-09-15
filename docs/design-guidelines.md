@@ -86,6 +86,10 @@ Use the stacked wordmark at left, primary links in the centre and account/cart a
 
 Product photograph, small type/category label, title, concise proposition, price and cadence, then action. Show “per month” and delivery treatment beside subscription prices. Do not fabricate review counts, savings, inventory scarcity, weights or servings.
 
+The three featured boxes replace the top-left image chip with an “Award winning sausages” starburst. Use the shared `ProductBadge.vue` component and slug mapping in `productBadges.ts` so each box carries the same sticker on its card and product gallery: mustard with 14 points for The Regular, red with a cream centre and 12 points for The Fling, and black with cream lettering and 16 points for The Big Gesture. Heavy ink outlines, a small offset shadow, Lilita One lettering and tiny sausage/heart flourishes match the mascot. Keep the badge inside the upper-left image corner, clear of controls and the main box contents. Preserve its tilt when photos animate, and keep it out of the enlarged photo viewer.
+
+The award wording refers to German Butchery's sausage range; product pages link to the [supplier's award records](https://www.german-butchery.com.au/awards), checked 15 September 2026. Its Continental Frankfurter, German Bratwurst and Cheese Kransky have listed awards. These are original brand stickers, not reproductions of official award medals or claims that Wiener Box itself won an award. Keep badge eligibility explicit in the product mapping and review it when box contents or suppliers change.
+
 Cart rows use the same title/price format, labelled quantity controls and an explicit remove action. Recalculate totals on the server. Separate recurring and one-off lines.
 
 ### Forms and dialogs
@@ -117,6 +121,9 @@ Use a distinct supporting pose in each section below the hero. Keep the hero tre
 | Sausage showcase | `grill`: chef's hat, tongs and thumbs-up | Small accent at the photo's lower-right edge, clear of the caption |
 | Pick your box | `choose`: welcoming hand and downward point | Beside the section heading, pointing toward the range |
 | How it works | `deliver`: walking with a parcel | Beside the heading above the three steps |
+| Pick a box step | `step-love`: hugging an open box with floating hearts | Above step 01; “Love at first bite.” |
+| Delivery step | `step-roll`: roller-skating with a parcel | Above step 02; “We’re on a roll.” |
+| BBQ step | `step-grill`: chef with tongs and a red kettle barbecue | Above step 03; “Licence to grill.” |
 | Gifting | `gift`: holding a wrapped present | Alongside the gift action |
 | FAQs | `curious`: finger on chin | Beside the introduction, clear of the disclosure controls |
 | Launch signup | `announce`: waving with a megaphone | Beside the introductory copy, outside the form |
@@ -124,6 +131,8 @@ Use a distinct supporting pose in each section below the hero. Keep the hero tre
 Render these through `MascotArtwork.vue` and the `mascotArtwork.ts` asset mapping. Use the paired SVG mask for each pose, including transparent arm and leg openings; do not reuse another pose's mask or apply blend modes. Keep the complete silhouette visible, use intrinsic dimensions and responsive WebP sources, and lazy-load the images. Decorative images have empty alt text and no pointer interactions. Allow the layout to stack on narrow screens instead of covering copy, buttons or form fields.
 
 Original artwork lives in `brand/mascots`; 360 and 720 px WebP copies and vector display masks live in `public/images/mascots`. Exact built-in generation prompts and source references are recorded in `brand/image-prompts.md`.
+
+The “From our box to your BBQ” steps use illustrated scenes instead of line icons. Keep square compositions, equal artwork space, mustard numbered badges and short red display-font pun captions above the practical headings. Render captions as live text, never baked into artwork. Use a three-column layout on larger screens and stack the complete steps on mobile. Preserve small scene details in the display masks as well as the main character; leave clear space between the numbering and artwork.
 
 ### Food photography
 
@@ -141,7 +150,7 @@ Every launch product has selectable thumbnails: five views for boxes and two for
 
 Provide previous/next buttons, a visible image count and pressed states on thumbnails. Support arrow keys, Home/End and horizontal swipes; do not autoplay. Open the larger view in a native modal dialog with contained keyboard focus, Escape and a visible close button. Restore focus and page scrolling on close or navigation. Preserve the complete image in the main gallery and enlarged view, and show a useful message if an image fails to load.
 
-Use one consistent outline icon family (Lucide), with 1.8–2 px strokes. Standard sizes: 16, 20 and 24 px. Icons accompany labels unless the function has an accessible name.
+Use one consistent outline icon family (Lucide) for functional controls, with 1.8–2 px strokes. Standard sizes: 16, 20 and 24 px. Icons accompany labels unless the function has an accessible name. The homepage's box-to-BBQ storytelling steps use the mascot illustrations above.
 
 ## 7. Voice and shopping clarity
 

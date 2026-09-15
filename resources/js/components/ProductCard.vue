@@ -4,6 +4,8 @@ import { ArrowUpRight, Package } from '@lucide/vue';
 import { money, type Product } from '../types';
 import { productPhoto } from '../foodPhotography';
 import ProductImage from './ProductImage.vue';
+import ProductBadge from './ProductBadge.vue';
+import { productBadge } from '../productBadges';
 defineProps<{ product: Product }>();
 </script>
 <template>
@@ -20,7 +22,8 @@ defineProps<{ product: Product }>();
             ]"
             :aria-label="`Explore ${product.name}`"
         >
-            <span class="product-label">{{
+            <ProductBadge v-if="productBadge(product.slug)" :slug="product.slug" />
+            <span v-else class="product-label">{{
                 product.category === 'subscription'
                     ? 'THE MAIN EVENT'
                     : product.category === 'gift'

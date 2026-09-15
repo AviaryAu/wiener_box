@@ -2,6 +2,8 @@
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue';
 import { ArrowLeft, ArrowRight, ArrowUpRight, ImageOff, Package, X, ZoomIn } from '@lucide/vue';
 import { photoCaption, productGallery } from '../foodPhotography';
+import ProductBadge from './ProductBadge.vue';
+import { productBadge, supplierAwardsUrl } from '../productBadges';
 
 const props = defineProps<{ slug: string; name: string; colour: string }>();
 const photos = computed(() => productGallery(props.slug));
@@ -149,6 +151,7 @@ onBeforeUnmount(() => {
                     />
                     <span v-if="!imageFailed" class="gallery-enlarge"><ZoomIn :size="18" />View larger</span>
                 </button>
+                <ProductBadge :slug="slug" />
                 <div v-if="imageFailed" class="gallery-image-error" role="status">
                     <ImageOff :size="30" />
                     <p>This photo couldn’t load. Try another view.</p>
@@ -196,6 +199,16 @@ onBeforeUnmount(() => {
                 </button>
             </div>
             <p class="photo-caption">{{ photoCaption(active) }}</p>
+            <p v-if="productBadge(slug)" class="product-award-reference">
+                Award-winning sausages from German Butchery.
+                <a
+                    :href="supplierAwardsUrl"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="View German Butchery supplier awards (opens in a new tab)"
+                    >View supplier awards <ArrowUpRight :size="13" aria-hidden="true" />
+                </a>
+            </p>
             <p v-if="active.reference" class="photo-reference">
                 Product reference:
                 <a

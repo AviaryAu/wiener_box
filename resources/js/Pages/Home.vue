@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Head, Link } from '@inertiajs/vue3';
-import { ArrowUpRight, ArrowRight, PackageCheck, Truck, Utensils, Sparkles } from '@lucide/vue';
+import { ArrowUpRight, ArrowRight, Sparkles } from '@lucide/vue';
 import ProductCard from '../components/ProductCard.vue';
 import ProductImage from '../components/ProductImage.vue';
 import WaitlistForm from '../components/WaitlistForm.vue';
@@ -106,7 +106,7 @@ const faqs = [
                 availability to be confirmed.
             </p>
         </section>
-        <section class="how-section">
+        <section id="box-to-bbq" class="how-section">
             <div class="container">
                 <div class="section-heading how-heading">
                     <div>
@@ -117,12 +117,26 @@ const faqs = [
                 </div>
                 <div class="steps-grid">
                     <article>
-                        <div class="step-icon"><PackageCheck :size="32" /><span>01</span></div>
+                        <div class="step-illustration">
+                            <span class="step-number">01</span>
+                            <MascotArtwork
+                                pose="step-love"
+                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                            />
+                        </div>
+                        <span class="step-pun">Love at first bite.</span>
                         <h3>Pick a box.</h3>
                         <p>Make it a regular thing, try a one-off, or send someone a delicious surprise.</p>
                     </article>
                     <article>
-                        <div class="step-icon"><Truck :size="32" /><span>02</span></div>
+                        <div class="step-illustration">
+                            <span class="step-number">02</span>
+                            <MascotArtwork
+                                pose="step-roll"
+                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                            />
+                        </div>
+                        <span class="step-pun">We’re on a roll.</span>
                         <h3>We’ll bring the goods.</h3>
                         <p>
                             Chilled delivery is planned for our Sydney launch. Check your postcode for
@@ -130,7 +144,14 @@ const faqs = [
                         </p>
                     </article>
                     <article>
-                        <div class="step-icon"><Utensils :size="32" /><span>03</span></div>
+                        <div class="step-illustration">
+                            <span class="step-number">03</span>
+                            <MascotArtwork
+                                pose="step-grill"
+                                sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
+                            />
+                        </div>
+                        <span class="step-pun">Licence to grill.</span>
                         <h3>Make a meal of it.</h3>
                         <p>Gather your favourite people. Add mustard. Let the good times roll.</p>
                     </article>
