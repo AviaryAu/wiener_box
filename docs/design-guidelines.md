@@ -121,9 +121,9 @@ Use a distinct supporting pose in each section below the hero. Keep the hero tre
 | Sausage showcase | `grill`: chef's hat, tongs and thumbs-up | Small accent at the photo's lower-right edge, clear of the caption |
 | Pick your box | `choose`: welcoming hand and downward point | Beside the section heading, pointing toward the range |
 | How it works | `deliver`: walking with a parcel | Beside the heading above the three steps |
-| Pick a box step | `step-love`: hugging an open box with floating hearts | Above step 01; “Love at first bite.” |
-| Delivery step | `step-roll`: roller-skating with a parcel | Above step 02; “We’re on a roll.” |
-| BBQ step | `step-grill`: chef with tongs and a red kettle barbecue | Above step 03; “Licence to grill.” |
+| Pick a box step | `step-box`: open mustard insulated carton with red tape | Above step 01; “Love at first bite.” |
+| Delivery step | `step-truck`: compact refrigerated delivery vehicle | Above step 02; “We’re on a roll.” |
+| BBQ step | `step-bbq`: red kettle barbecue with an open lid and tongs | Above step 03; “Licence to grill.” |
 | Gifting | `gift`: holding a wrapped present | Alongside the gift action |
 | FAQs | `curious`: finger on chin | Beside the introduction, clear of the disclosure controls |
 | Launch signup | `announce`: waving with a megaphone | Beside the introductory copy, outside the form |
@@ -132,7 +132,7 @@ Render these through `MascotArtwork.vue` and the `mascotArtwork.ts` asset mappin
 
 Original artwork lives in `brand/mascots`; 360 and 720 px WebP copies and vector display masks live in `public/images/mascots`. Exact built-in generation prompts and source references are recorded in `brand/image-prompts.md`.
 
-The “From our box to your BBQ” steps use illustrated scenes instead of line icons. Keep square compositions, equal artwork space, mustard numbered badges and short red display-font pun captions above the practical headings. Render captions as live text, never baked into artwork. Use a three-column layout on larger screens and stack the complete steps on mobile. Preserve small scene details in the display masks as well as the main character; leave clear space between the numbering and artwork.
+The “From our box to your BBQ” columns use object illustrations: an insulated carton, a compact refrigerated delivery vehicle and a kettle barbecue. Keep the single delivery mascot beside the section heading; do not repeat characters within the columns. Objects match the mascot's thick black outlines, rounded shapes, warm palette and restrained print texture, without faces or limbs. Keep square compositions, equal artwork space, mustard numbered badges and short red display-font pun captions above the practical headings. Render captions as live text, never baked into artwork. Use a three-column layout on larger screens and stack the complete steps on mobile. Preserve small object details and negative spaces in the display masks; leave clear space between the numbering and artwork.
 
 ### Food photography
 
@@ -150,7 +150,7 @@ Every launch product has selectable thumbnails: five views for boxes and two for
 
 Provide previous/next buttons, a visible image count and pressed states on thumbnails. Support arrow keys, Home/End and horizontal swipes; do not autoplay. Open the larger view in a native modal dialog with contained keyboard focus, Escape and a visible close button. Restore focus and page scrolling on close or navigation. Preserve the complete image in the main gallery and enlarged view, and show a useful message if an image fails to load.
 
-Use one consistent outline icon family (Lucide) for functional controls, with 1.8–2 px strokes. Standard sizes: 16, 20 and 24 px. Icons accompany labels unless the function has an accessible name. The homepage's box-to-BBQ storytelling steps use the mascot illustrations above.
+Use one consistent outline icon family (Lucide) for functional controls, with 1.8–2 px strokes. Standard sizes: 16, 20 and 24 px. Icons accompany labels unless the function has an accessible name. The homepage's box-to-BBQ storytelling steps use the object illustrations above.
 
 ## 7. Voice and shopping clarity
 

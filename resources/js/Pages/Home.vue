@@ -120,7 +120,7 @@ const faqs = [
                         <div class="step-illustration">
                             <span class="step-number">01</span>
                             <MascotArtwork
-                                pose="step-love"
+                                pose="step-box"
                                 sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
                             />
                         </div>
@@ -132,7 +132,7 @@ const faqs = [
                         <div class="step-illustration">
                             <span class="step-number">02</span>
                             <MascotArtwork
-                                pose="step-roll"
+                                pose="step-truck"
                                 sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
                             />
                         </div>
@@ -147,7 +147,7 @@ const faqs = [
                         <div class="step-illustration">
                             <span class="step-number">03</span>
                             <MascotArtwork
-                                pose="step-grill"
+                                pose="step-bbq"
                                 sizes="(max-width: 639px) 240px, (max-width: 899px) 200px, 260px"
                             />
                         </div>
