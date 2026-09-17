@@ -106,6 +106,54 @@ b {
 #main:focus {
     outline: none;
 }
+.watermark-panel {
+    --watermark-image: url('/images/watermark-links.svg');
+    position: relative;
+    isolation: isolate;
+}
+.watermark-panel::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background-image: var(--watermark-image);
+    background-repeat: no-repeat;
+    background-size: var(--watermark-size) auto;
+    background-position: left calc(var(--watermark-size) * -0.22) bottom calc(var(--watermark-size) * -0.18);
+    opacity: var(--watermark-opacity);
+    pointer-events: none;
+    user-select: none;
+}
+.watermark-panel[data-page='Home']::before {
+    content: none;
+}
+.watermark-bbq,
+.watermark-panel[data-page='Recipes'],
+.watermark-panel[data-page='Recipe'] {
+    --watermark-image: url('/images/watermark-bbq.svg');
+}
+.watermark-box,
+.watermark-panel[data-page='Delivery'],
+.watermark-panel[data-page='HowItWorks'],
+.watermark-panel[data-page='Cart'],
+.watermark-panel[data-page='Account'],
+.watermark-panel[data-page='Auth'] {
+    --watermark-image: url('/images/watermark-box.svg');
+}
+.launch-section.watermark-panel {
+    --watermark-opacity: 0.1;
+}
+@media (max-width: 639px) {
+    .watermark-panel {
+        --watermark-size: 360px;
+        --watermark-opacity: 0.1;
+    }
+}
+@media print {
+    .watermark-panel::before {
+        display: none;
+    }
+}
 .container {
     width: min(var(--content-width), calc(100% - 96px));
     margin-inline: auto;

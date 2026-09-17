@@ -10,6 +10,8 @@
     --color-peach: #f8c6af;
     --color-sage: #dce3bc;
     --color-success: #34563b;
+    --watermark-opacity: 0.13;
+    --watermark-size: clamp(380px, 48vw, 680px);
     --font-display: 'Lilita One', Impact, sans-serif;
     --font-body: 'DM Sans Variable', 'DM Sans', Arial, sans-serif;
     --space-1: 4px;

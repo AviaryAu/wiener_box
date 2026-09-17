@@ -56,7 +56,7 @@ const faqs = [
                 availability to be confirmed.
             </p>
         </section>
-        <section id="box-to-bbq" class="how-section">
+        <section id="box-to-bbq" class="how-section watermark-panel watermark-bbq">
             <div class="container">
                 <div class="section-heading how-heading">
                     <div>
@@ -150,7 +150,7 @@ const faqs = [
                 </details>
             </div>
         </section>
-        <section id="launch-list" class="launch-section">
+        <section id="launch-list" class="launch-section watermark-panel watermark-box">
             <div class="container launch-grid">
                 <div>
                     <p class="eyebrow">THE GRILL IS WARMING UP.</p>

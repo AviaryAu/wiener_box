@@ -67,7 +67,9 @@ const links = [
             {{ page.props.flash.message }}
             <Link href="/cart" v-if="page.props.flash.message.startsWith('Added')">View your box →</Link>
         </div>
-        <main id="main" tabindex="-1"><slot /></main>
+        <main id="main" class="watermark-panel" :data-page="page.component" tabindex="-1">
+            <slot />
+        </main>
         <footer class="site-footer">
             <div class="container footer-grid">
                 <div>
